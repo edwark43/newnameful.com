@@ -38,11 +38,12 @@ html, body {
 
 #splash {
     color: #FFFF00;
-    font-size: 1.5em;
+    font-size: 1.3em;
     text-shadow: 3px 3px #3F3F00;
     padding: 40px;
     position: relative;
-    left: 150px;
+    left: 130px;
+    bottom: 30px;
 }
 
 .tilt {
