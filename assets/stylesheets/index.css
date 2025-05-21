@@ -1,20 +1,47 @@
+@media(max-width:1400px) {
+  .navButton {
+
+  }
+}
+
 @font-face {
   font-family: 'minecraft';
   src: url('/assets/fonts/MinecraftRegular.otf') format('opentype');
 }
 
-* {box-sizing: border-box}
+@keyframes pop {
+    from {
+        transform:scale(0.95)
+    }
+    50% {
+        transform:scale(1)
+    }
+    to {
+        transform:scale(0.95)
+    }
+}
 
-html, body {
+* {
+  box-sizing: border-box;
+  font-family: 'minecraft';
+}
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
   margin: 0;
   height: 100%;
-  font-family: 'minecraft';
   background-color: #1a1a1a;
   color: #eee;
-  padding: 10px;
   text-align: center;
   overflow-x: hidden;
 }
+
+
+
 
 .card {
   margin: auto;
@@ -36,6 +63,10 @@ html, body {
   margin: auto;
 }
 
+#cardContainer {
+  padding-top: 20px;
+}
+
 #splash {
     color: #FFFF00;
     font-size: 1.3em;
@@ -54,14 +85,29 @@ html, body {
     animation: pop 0.58s infinite;
 }
 
-@keyframes pop {
-    from {
-        transform:scale(0.95)
-    }
-    50% {
-        transform:scale(1)
-    }
-    to {
-        transform:scale(0.95)
-    }
+.section {
+  display: none;
+  padding: 75px 20px;
+}
+
+#navbar {
+  position: fixed;
+  width: 100%;
+}
+
+.navButton {
+  float: left;
+  padding: 10px 20px;
+  border: none;
+  border-top: 3px solid black;
+  cursor: pointer;
+  font-size: 2.4vw;
+  width: 20%;
+  background-color: black;
+  color: white;
+}
+
+.navButton:hover {
+  background-color: white !important;
+  color: black !important;
 }

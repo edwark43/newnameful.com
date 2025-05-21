@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>New Nameful Election Info</title>
+    <title>New Nameful</title>
     <meta charset="UTF-8" />
     <meta name="description" content="Tellow approves!!!!!" />
     <meta name="keywords" content="lkarch, website, new nameful, election" />
@@ -11,21 +11,44 @@
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
   </head>
   <body onload="onPageLoad()">
-    <div class="card">
-        <p>Ruler<hr></p>
-        <p id="ruler">Steve</p>
-      <img id="rulerImage" src="https://minotar.net/body/MHF_Steve/100.png" alt="Player Render">
+    <div id="navbar">
+      <button class="navButton" id="placeholder1Button" onclick="switchSection('placeholder1', this)">Placeholder1</button>
+      <button class="navButton" id="electionButton" onclick="switchSection('election', this)">Election</button>
+      <button class="navButton" id="placeholder2Button" onclick="switchSection('placeholder2', this)">Placeholder2</button>
+      <button class="navButton" id="placeholder3Button" onclick="switchSection('placeholder3', this)">Placeholder3</button>
+      <button class="navButton" id="placeholder4Button" onclick="switchSection('placeholder4', this)">Placeholder4</button>
     </div>
-    <div class="card">
-        <p>Co-Ruler<hr></p>
-        <p id="coRuler">Steve</p>
-      <img id="coRulerImage" src="https://minotar.net/body/MHF_Steve/100.png" alt="Player Render">
-      <div class="tilt">
-        <div id="splash" class="pop">Totally&nbsp;not&nbsp;rigged</div>
+    <div class="section" id="placeholder1">
+      <p>placeholder</p>
+    </div>
+    <div class="section" id="election">
+      <div id="cardContainer">
+        <div class="card">
+          <p>Ruler<hr></p>
+          <p id="ruler">Steve</p>
+          <img id="rulerImage" src="https://minotar.net/body/MHF_Steve/100.png" alt="Player Render">
+        </div>
+        <div class="card">
+          <p>Co-Ruler<hr></p>
+          <p id="coRuler">Steve</p>
+          <img id="coRulerImage" src="https://minotar.net/body/MHF_Steve/100.png" alt="Player Render">
+          <div class="tilt">
+            <div id="splash" class="pop">Totally&nbsp;not&nbsp;rigged</div>
+          </div>
+        </div>
       </div>
+      <br>
+      <p id="electionCountdown">Election Countdown</p>
     </div>
-    <br>
-    <p id="electionCountdown">Election Countdown</p>
+    <div class="section" id="placeholder2">
+      <p>placeholder</p>
+    </div>
+    <div class="section" id="placeholder3">
+      <p>placeholder</p>
+    </div>
+    <div class="section" id="placeholder4">
+      <p>placeholder</p>
+    </div>
     <script src="assets/javascript/index.js"></script>
   </body>
 </html>
