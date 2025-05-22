@@ -76,6 +76,7 @@ function loadMemberList() {
     const memberListItem = document.createElement("p");
     memberListItem.innerHTML = memberList[member];
 
+    document.getElementById("memberCount").innerHTML = "Member List: " + memberList.length
     document.getElementById("memberList").appendChild(memberListItem);
   }
 }
