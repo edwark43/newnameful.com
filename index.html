@@ -12,23 +12,24 @@
   </head>
   <body onload="onPageLoad()">
     <div id="navbar">
-      <button class="navButton" id="placeholder1Button" onclick="switchSection('placeholder1', this)">Placeholder1</button>
+      <button class="navButton" id="infoButton" onclick="switchSection('info', this)">Info</button>
       <button class="navButton" id="electionButton" onclick="switchSection('election', this)">Election</button>
-      <button class="navButton" id="placeholder2Button" onclick="switchSection('placeholder2', this)">Placeholder2</button>
-      <button class="navButton" id="placeholder3Button" onclick="switchSection('placeholder3', this)">Placeholder3</button>
-      <button class="navButton" id="placeholder4Button" onclick="switchSection('placeholder4', this)">Placeholder4</button>
+      <button class="navButton" id="constitutionButton" onclick="switchSection('constitution', this)">Constitution</button>
+      <button class="navButton" id="membersButton" onclick="switchSection('members', this)">Members</button>
+      <button class="navButton" id="newsButton" onclick="switchSection('news', this)">News Notice</button>
+      <button class="navButton" id="historyButton" onclick="switchSection('history', this)">History</button>
     </div>
-    <div class="section" id="placeholder1">
-      <p>placeholder</p>
+    <div class="section" id="info">
+      <p>Info</p>
     </div>
     <div class="section" id="election">
       <div id="cardContainer">
-        <div class="card">
+        <div class="card" style="height: 322px;">
           <p>Ruler<hr></p>
           <p id="ruler">Steve</p>
           <img id="rulerImage" src="https://minotar.net/body/MHF_Steve/100.png" alt="Player Render">
         </div>
-        <div class="card">
+        <div class="card" style="height: 322px;">
           <p>Co-Ruler<hr></p>
           <p id="coRuler">Steve</p>
           <img id="coRulerImage" src="https://minotar.net/body/MHF_Steve/100.png" alt="Player Render">
@@ -40,14 +41,21 @@
       <br>
       <p id="electionCountdown">Election Countdown</p>
     </div>
-    <div class="section" id="placeholder2">
-      <p>placeholder</p>
+    <div class="section" id="constitution">
+      <p>Constitution</p>
     </div>
-    <div class="section" id="placeholder3">
-      <p>placeholder</p>
+    <div class="section" id="members">
+      <div id="cardContainer">
+        <div class="card" id="memberList">
+          <p>Member List<hr></p>
+        </div>
+      </div>
     </div>
-    <div class="section" id="placeholder4">
-      <p>placeholder</p>
+    <div class="section" id="news">
+      <p>News Notice</p>
+    </div>
+    <div class="section" id="history">
+      <p>History</p>
     </div>
     <script src="assets/javascript/index.js"></script>
   </body>
