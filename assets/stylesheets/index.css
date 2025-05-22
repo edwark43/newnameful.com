@@ -57,10 +57,11 @@ body {
     color: #FFFF00;
     font-size: 1.3em;
     text-shadow: 3px 3px #3F3F00;
-    padding: 40px;
+    padding-top: 40px;
     position: relative;
-    left: 130px;
-    bottom: 30px;
+    left: 180px;
+    bottom: 45px;
+    width: fit-content;
 }
 
 .tilt {
