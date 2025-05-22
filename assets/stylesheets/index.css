@@ -97,3 +97,13 @@ body {
   background-color: white !important;
   color: black !important;
 }
+
+#footer {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+
+#footer a {
+  color: white;
+}
