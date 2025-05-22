@@ -53,15 +53,15 @@ function switchSection(sectionName, button) {
 }
 
 function loadRulersAndElectionCountdown() {
-  console.log(nnRuler);
+  console.log("Ruler found: \"" + nnRuler + "\"");
   document.getElementById("ruler").innerText = nnRuler;
   document.getElementById("rulerImage").src = "https://minotar.net/armor/body/" + nnRuler + "/100.png";
 
-  console.log(nnCoRuler);
+  console.log("Co-ruler found: \"" + nnCoRuler + "\"");
   document.getElementById("coRuler").innerText = nnCoRuler;
   document.getElementById("coRulerImage").src = "https://minotar.net/armor/body/" + nnCoRuler + "/100.png";
 
-  console.log(calculateCountdown(electionDate));
+  console.log("Next election occurs in " + calculateCountdown(electionDate) + " days");
 
 
   if (Math.ceil(calculateCountdown(electionDate)) <= 0) {
@@ -82,17 +82,17 @@ function loadMemberList() {
 }
 
 function onPageLoad() {
-  loadRulersAndElectionCountdown()
-  loadMemberList()
-
   if (url.searchParams.has("section")) {
-    console.log("URL parameter found, forcing section to " + url.searchParams.get("section") + ".");
+    console.log("URL parameter found, forcing section to \"" + url.searchParams.get("section") + "\"");
     document.getElementById(url.searchParams.get("section") + "Button").click();
   } else if (getCookie("section") === "") {
-    console.log("A wild user appears! Defaulting to first section, \"" + sectionList[0].id + "\".")
+    console.log("A wild user appears! Defaulting to first section, \"" + sectionList[0].id + "\"")
     document.getElementById(sectionList[0].id + "Button").click();
   } else {
-    console.log("Section cookie found, restoring section to \"" + getCookie("section") + "\".");
+    console.log("Section cookie found, restoring section to \"" + getCookie("section") + "\"");
     document.getElementById(getCookie("section") + "Button").click();
   }
+
+  loadRulersAndElectionCountdown()
+  loadMemberList()
 }
