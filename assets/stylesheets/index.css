@@ -41,7 +41,7 @@ body {
   padding: 15px;
   margin-bottom: 20px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-  width: 370px;
+  width: 90%;
 }
 
 .card p {
@@ -59,9 +59,9 @@ body {
     text-shadow: 3px 3px #3F3F00;
     padding-top: 40px;
     position: relative;
-    left: 180px;
-    bottom: 45px;
-    width: fit-content;
+    text-align: center;
+    left: 140px;
+    bottom: 20px;
 }
 
 .tilt {
@@ -107,4 +107,8 @@ body {
 
 #footer a {
   color: white;
+}
+
+.newsImage {
+  width: 50%;
 }

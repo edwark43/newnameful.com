@@ -5,9 +5,10 @@ const nnRuler = "cool_tellow";
 const nnCoRuler = "ColoradoCrusade";
 const electionDate = "2025-6-30";
 
-const splashes = ["Totally not rigged!!!"];
+const splashes = ["Totally not rigged!!!", "New Lameful", "What's Uptown?", nnRuler + " approves!", "♫I've been workin' on the railroad♫", "Also visit CalvinTown", "Also visit IkeaLand", "Also visit Matsunoki", "Also visit MillField", "Also visit Jurcgrad", "Also visit Spawn 2025", "Brought to you by the NNNNNNNNNN", "<b><i>Dig the Cube</i></b>"];
 
 const memberList = ["Omtegu", "pupik923", "cool_tellow", "JoeTheDauntless", "black_frieza", "Jinx64_", "eldiego", "Gero06", "Spencer1019", "mrcreeperg4", "TiredToonz", "idan1503", "Wormzy333", "ColoradoCrusade", "spenten", "Geogaddiiii", "Austcd30", "MyNameIsRasheed", "MrSteam84", "TwoGoodFiveme", "ara2009", "Ransterr", "ItzFriez6312", "ArzoAblaze", "jssjsjjssj", "toiletteeth", "B8arn", "FredDerp", "Georgequank", "hunterg2i", "KarmaIsDepressed", "Mini", "ChilliChillt", "ServerLite", "proper_cat", "Master__Kief", "ItzBiblcle", "MrAss_asd", "Burningskull562", "se2p", "mindlord", "ItIsYeFish", "pivozavr2004", "latcyy", "LuckKir", "oggghrkwneh", "MiHoub", "David", "lkarch", "MegaByteX", "ScaryCowCow4", "Glanthrial", "Deskfan45", "nielubiecie321", "BoomFox_Official", "DrDews", "DrNubXP", "hagluciak19", "SavageUser", "Fireballiceball", "JakeRedstone", "kaiookk1", "My_ChairSlipped", "j63k", "jurckurc", "workingontrying", "KevinDurantgoat", "Creeperpaste", "Islando_Commando", "Migzotic", "Teasoup", "F8fnir", "JorgenMister", "isnikoda", "TrustedHawk1855", "Revivey", "BleonIlazi", "AgentTammy", "Losangelesquest", "jeorm", "CrafterSteve98", "ilikemacandcheez", "NotRawZach", "herrydicc", "Hendway", "Pugino", "TeeDoesStuff", "TomAndBon", "SJET_Inc", "Urogalo", "arrochista", "JakePaulcraft", "WetBed43", "grammarissue", "pappoy76", "BurgerMan_27", "ilhanerdem2015", "BashurverseMC", "Batteryacids", "freddyw", "Acid0verl0ad", "CerealBoiz", "Q_QIndustries", "minerkat2011", "Capital3", "Assult_penguin", "NexSol", "DrWild", "nnnnn", "Jerry_juju", "hanxing", "Juasonxd", "Mikey_herobrine", "FluffyFoxFae", "Karmatical0", "ItsMxt", "Yen45", "Olat", "FredMCGamer", "capitanatomico", "DanielRobert15", "Hefeng_Song", "Leozero_", "MyGmail", "SkyNotBlue", "eldiegoat", "huntermkk", "ItsVollx", "sonictank1", "Miyazaki", "Beanzo0", "VolxyzMC", "tvoreal", "sushi_king86", "KAMILE33", "pascal_machet", "barton1357TF2", "Yungyoungin1", "kleeorg", "SnailRibs", "yourstruly71", "Csorroflegma", "ahhhhhhhh1587", "Lofeee", "mmakart", "adebuilder", "Jetteriter", "mud4dum", "Jesper2011", "GREENAPPLE", "guinea_pig_doody", "CreeperX200", "AudemusJura", "cutekttn", "bartur4", "Feruxia", "Kurzov", "MONKEYMAN346776", "breadcool", "Zaku1626", "keyboardan", "tetunnel", "ItTommy22Toad", "FulgencioBatista", "inoxisane", "q0iat", "Levinder", "aidenjamesmcl"];
+
 
 function getCookie(cookieName) {
   let name = cookieName + "=";
@@ -39,7 +40,7 @@ function switchSection(sectionName, button) {
   }
 
   let navButton = document.getElementsByClassName("navButton");
-  for (i = 0; i < navButton.length; i++) {
+  for (let i = 0; i < navButton.length; i++) {
     navButton[i].style.backgroundColor = "black";
     navButton[i].style.color = "white";
   }
@@ -76,7 +77,7 @@ function randomizeSplash() {
   let randomSplash = splashes[Math.floor(Math.random() * splashes.length)];
   console.log("Splash randomized to \"" + randomSplash +"\"");
 
-  document.getElementById("splash").innerText = randomSplash;
+  document.getElementById("splash").innerHTML = randomSplash;
 }
 
 function loadMemberList() {
@@ -87,6 +88,38 @@ function loadMemberList() {
     document.getElementById("memberCount").innerText = "Member List: " + memberList.length;
     document.getElementById("memberList").appendChild(memberListItem);
   }
+}
+
+function loadNews() {
+  fetch("/assets/json/newsnotice/newsnotice.json")
+  .then(response => response.json())
+  .then(json => {
+    json.messages.reverse();
+    for (let message = 0; message < json.messages.length; message++) {
+      if (json.messages[message].attachments.length > 0) {
+        let newsPost = document.createElement("div");
+        let newsTitle = document.createElement("p");
+        let newsDate = new Date(json.messages[message].timestamp)
+        let newsLine = document.createElement("hr");
+
+        newsPost.className = "card";
+        newsPost.id = "post" + message;
+        newsTitle.innerText = json.messages[message].author.name + " | " + newsDate.toLocaleDateString();
+
+        document.getElementById("news").appendChild(newsPost);
+        document.getElementById("post" + message).append(newsTitle,newsLine);
+
+        for (let attachment = 0; attachment < json.messages[message].attachments.length; attachment++) {
+          let newsAttachment = document.createElement("img");
+
+          newsAttachment.className = "newsImage";
+          newsAttachment.src = "/assets/json/newsnotice/" + json.messages[message].attachments[attachment].url;
+
+          document.getElementById("post" + message).append(newsAttachment);
+        }
+      }
+    }
+  });
 }
 
 function onPageLoad() {
@@ -104,4 +137,5 @@ function onPageLoad() {
   loadRulersAndElectionCountdown();
   randomizeSplash();
   loadMemberList();
+  loadNews();
 }
