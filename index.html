@@ -16,7 +16,8 @@
       <button class="navButton" id="electionButton" onclick="switchSection('election', this)">Election</button>
       <button class="navButton" id="constitutionButton" onclick="switchSection('constitution', this)">Constitution</button>
       <button class="navButton" id="membersButton" onclick="switchSection('members', this)">Members</button>
-      <button class="navButton" id="newsButton" onclick="switchSection('news', this)">News Notice</button>
+      <button class="navButton" id="announcementsButton" onclick="switchSection('announcements', this)">Announcements</button>
+      <button class="navButton" id="newsButton" onclick="switchSection('news', this)">News</button>
       <button class="navButton" id="historyButton" onclick="switchSection('history', this)">History</button>
       <button class="navButton" id="discordButton" onclick="window.location.href = 'https://discord.newnameful.com'">Discord</button>
     </div>
@@ -24,13 +25,14 @@
       <p>Info</p>
     </div>
     <div class="section" id="election">
-      <div class="card" style="height: 322px;width: 370px;">
+      <p>Currently Elected Leaders</p>
+      <div class="card" style="height: 340px;width: 370px;">
         <p>Ruler</p>
         <hr>
         <p id="ruler">Steve</p>
         <img id="rulerImage" src="https://minotar.net/body/MHF_Steve/100.png" alt="Player Render">
       </div>
-      <div class="card" style="height: 322px;width: 370px;">
+      <div class="card" style="height: 340px;width: 370px;">
         <p>Co-Ruler</p>
         <hr>
         <p id="coRuler">Steve</p>
@@ -46,13 +48,17 @@
       <p>Constitution</p>
     </div>
     <div class="section" id="members">
+      <p>Member List</p>
       <div class="card" id="memberList" style="width: 370px;">
-        <p id="memberCount">Member List: 0</p>
+        <p id="memberCount">Member Count: 0</p>
         <hr>
       </div>
     </div>
+    <div class="section" id="announcements">
+      <p>Announcements</p>
+    </div>
     <div class="section" id="news">
-      <p>News Notice</p>
+      <p>New Nameful News Nexus News Network News Notice Noticeboard News</p>
     </div>
     <div class="section" id="history">
       <p>History</p>
