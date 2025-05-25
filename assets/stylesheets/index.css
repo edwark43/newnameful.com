@@ -11,8 +11,8 @@
 }
 
 @font-face {
-  font-family: 'minecraft';
-  src: url('/assets/fonts/MinecraftRegular.otf') format('opentype');
+  font-family: 'Minecraftia';
+  src: url('/assets/fonts/Minecraftia.ttf') format('truetype');
 }
 
 @keyframes pop {
@@ -29,7 +29,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'minecraft';
+  font-family: 'Minecraftia';
 }
 
 html {
@@ -44,7 +44,7 @@ body {
   color: #eee;
   text-align: center;
   overflow-x: hidden;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .card {
@@ -76,13 +76,13 @@ body {
 
 #splash {
     color: #FFFF00;
-    font-size: 1.3em;
+    font-size: 1.5em;
     text-shadow: 3px 3px #3F3F00;
     padding-top: 40px;
     position: relative;
     text-align: center;
-    left: 140px;
-    bottom: 20px;
+    left: 440px;
+    top: 80px;
 }
 
 .tilt {
@@ -110,7 +110,7 @@ body {
   border: none;
   border-top: 3px solid black;
   cursor: pointer;
-  font-size: 2vw;
+  font-size: 1.8vw;
   background-color: black;
   color: white;
 }
