@@ -18,14 +18,43 @@
       <button class="navButton" id="membersButton" onclick="switchSection('members', this)">Members</button>
       <button class="navButton" id="announcementsButton" onclick="switchSection('announcements', this)">Announcements</button>
       <button class="navButton" id="newsButton" onclick="switchSection('news', this)">News</button>
-      <button class="navButton" id="historyButton" onclick="switchSection('history', this)">History</button>
+      <!-- <button class="navButton" id="historyButton" onclick="switchSection('history', this)">History</button> -->
       <button class="navButton" id="discordButton" onclick="window.location.href = 'https://discord.newnameful.com'">Discord</button>
     </div>
     <div class="section" id="info">
-      <p>Info</p>
+      <p><b>Info</b></p>
+      <div class="card" id="infoIntroduction">
+        <p>Introduction</p>
+        <hr>
+        <p>A large, populous town with great infrastructure, a good community, grand opportunities, and influence! New Nameful holds branches along other notable towns, being part of the United Cities and URO as well as the town spearheading the Nether Transit Coalition.</p>
+      </div>
+      <div class="card" id="infoDistricts">
+        <p>Districts</p>
+        <hr>
+        <p>The town is split into a district system, meaning different areas of the town may be managed by different players (and may have different rules, though this is rarely the case. Some noticeable districts include North Nameful, East Nameful, Nameful Bay, and Uptown Nameful.</p>
+      </div>
+      <div class="card" id="infoLeadership">
+        <p>Leadership</p>
+        <hr>
+        <p>The town is run under a democratic structure of government, with bi-monthly elections to decide who leads the town. A rulership term is 2 months long, and a ruler is good to serve for at max 2 terms in a row before needing to take a mandatory off term. Political parties help group similarly minded individuals.</p>
+      </div>
+      <div class="card" id="infoJoinToday">
+        <p>Join Today!</p>
+        <hr>
+        <p>New Nameful is FREE TO BUILD, meaning you do not need permission (save for specific districts). Just be respectful of other peoples builds and property. Take part of the community today!</p>
+      </div>
+      <div class="card" id="infoImages">
+        <p>Images</p>
+        <hr>
+        <img class="infoImage" src="assets/images/info/ss-25_05_2025-01-53-13.png" alt="">
+        <img class="infoImage" src="assets/images/info/ss-25_05_2025-01-53-25.png" alt="">
+        <img class="infoImage" src="assets/images/info/ss-25_05_2025-01-53-48.png" alt="">
+        <img class="infoImage" src="assets/images/info/ss-25_05_2025-01-53-58.png" alt="">
+        <img class="infoImage" src="assets/images/info/ss-25_05_2025-01-54-19.png" alt="">
+      </div>
     </div>
     <div class="section" id="election">
-      <p>Currently Elected Leaders</p>
+      <p><b>Currently Elected Leaders</b></p>
       <div class="card" style="height: 340px;width: 370px;">
         <p>Ruler</p>
         <hr>
@@ -38,31 +67,33 @@
         <p id="coRuler">Steve</p>
         <img id="coRulerImage" src="https://minotar.net/body/MHF_Steve/100.png" alt="Player Render">
         <div class="tilt">
-          <div id="splash" class="pop">Error</div>
+          <div id="splash" class="pop"></div>
         </div>
       </div>
       <br>
       <p id="electionCountdown">Election Countdown</p>
     </div>
     <div class="section" id="constitution">
-      <p>Constitution</p>
+      <p><b>Constitution</b></p>
     </div>
     <div class="section" id="members">
-      <p>Member List</p>
+      <p><b>Member List</b></p>
       <div class="card" id="memberList" style="width: 370px;">
         <p id="memberCount">Member Count: 0</p>
         <hr>
       </div>
     </div>
     <div class="section" id="announcements">
-      <p>Announcements</p>
+      <p><b>Announcements</b></p>
+      <p id="loadingAnnouncements">Still loading...</p>
     </div>
     <div class="section" id="news">
-      <p>New Nameful News Nexus News Network News Notice Noticeboard News</p>
+      <p><b>New Nameful News Nexus News Network News Notice Noticeboard News</b></p>
+      <p id="loadingNews">Still loading...</p>
     </div>
-    <div class="section" id="history">
-      <p>History</p>
-    </div>
+    <!-- <div class="section" id="history"> -->
+    <!--   <p>History</p> -->
+    <!-- </div> -->
     <div id="footer">
       <a href="https://git.lkarch.org/lkarch/newnameful.com">Source</a><br>
     </div>

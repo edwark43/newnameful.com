@@ -1,3 +1,15 @@
+@media only screen and (max-width: 1254px) {
+  #footer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  #splash {
+    display: none;
+  }
+}
+
 @font-face {
   font-family: 'minecraft';
   src: url('/assets/fonts/MinecraftRegular.otf') format('opentype');
@@ -52,6 +64,14 @@ body {
 .card img {
   display: block;
   margin: auto;
+}
+
+.cardContainer {
+  margin: auto;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 90%;
+  height: 220;
 }
 
 #splash {
@@ -110,6 +130,11 @@ body {
   color: white;
 }
 
+.infoImage {
+  padding: 10px;
+  width: 75%;
+}
+
 .newsImage {
   padding: 10px;
   width: 75%;
@@ -117,6 +142,11 @@ body {
 
 
 .announcementImage {
+  padding: 10px;
+  width: 75%;
+}
+
+.archiveImage {
   padding: 10px;
   width: 75%;
 }
