@@ -130,23 +130,18 @@ body {
   color: white;
 }
 
-.infoImage {
+.infoAttachment {
   padding: 10px;
   width: 75%;
 }
 
-.newsImage {
+.messageAttachment {
   padding: 10px;
   width: 75%;
 }
 
 
-.announcementImage {
-  padding: 10px;
-  width: 75%;
-}
-
-.archiveImage {
+.archiveAttachment {
   padding: 10px;
   width: 75%;
 }

@@ -5,8 +5,8 @@ const nnRuler = "cool_tellow";
 const nnCoRuler = "ColoradoCrusade";
 const electionDate = "June 30 2025";
 
-const constitutionSections = ["MAIN", "DISTRICTS", "DISCORD"]
-const constitutionPreambles = ["To be followed by every leader of New Nameful. Breaking of this constitution can and will result in expulsion of ownership. In such an event, ownership will be given to a co-owner. If no line of command exists, elections will once more be held. The constitution may be amended and changed if each amendment / change gets a 70% “yae” approval on a poll conducted in the Nameful Discord. Any poll conducted by the ruler is not to be answered by the Ruler aside from an Electoral poll."]
+const constitutionSections = ["MAIN", "DISTRICTS", "DISCORD"];
+const constitutionPreambles = ["To be followed by every leader of New Nameful. Breaking of this constitution can and will result in expulsion of ownership. In such an event, ownership will be given to a co-owner. If no line of command exists, elections will once more be held. The constitution may be amended and changed if each amendment / change gets a 70% “yae” approval on a poll conducted in the Nameful Discord. Any poll conducted by the ruler is not to be answered by the Ruler aside from an Electoral poll."];
 const constitutionAmendments = [
   [
     "A term is 2 months long. Approval ratings run 1 month into a term. A player is good to rule for at most 2 terms in a row before they must take a mandatory offterm. Once an off term is taken, their slate is clean and the player may run again with the same limitation as listed before.",
@@ -27,24 +27,10 @@ const constitutionAmendments = [
   ["Every person who possesses moderation powers is only permitted to exercise disciplinary actions if a rule has been broken. Deleting a message, issuing a timeout, kicking, and banning for personal reasons in an attempt to censor someone without justification is unconstitutional and will be punished.", "The Ruler may not add mods to the discord without consulting the current mods and conducting a private poll with a majority vote.", "The Ruler may not remove mods from the discord without evidence of unconstitutional action and consulting the current mods."]
 ];
 
-const memberList = ["<span style='color:#55FFFF'>Om<span style='color:#AA00AA'>te<span style='color:#AAAAAA'>gu</span></span></span>", "pupik923", "<span style='color:#FFAA00'>Tellow</span>", "JoeTheDauntless", "black_frieza", "Jinx64_", "<span style='color:#5555FF'>el<span style='color:#FFFF55'>diego</span></span>", "Gero06", "Spencer1019", "mrcreeperg4", "<span style='color:#FFAA00'>Tired<span style='color:#AA00AA'>Toonz</span></span>", "idan1503", "<span style='color:#FF55FF'>Wormzy<span style='color:#AA00AA'>333</span></span>", "<span style='color:#0000AA'>Colorado<span style='color:#AA0000'>Crusade</span></span>", "spenten", "Geogaddiiii", "Austcd30", "MyNameIsRasheed", "MrSteam84", "TwoGoodFiveme", "ara2009", "Ransterr", "ItzFriez6312", "ArzoAblaze", "jssjsjjssj", "toiletteeth", "B8arn", "FredDerp", "Georgequank", "hunterg2i", "<span style='color:#0000AA'>Karma<span style='color:#5555FF'>Is<span style='color:#00AAAA'>D<span style='color:#555555'>epressed</span></span></span></span>", "Mini", "ChilliChillt", "ServerLite", "proper_cat", "Master__Kief", "ItzBiblcle", "MrAss_asd", "Burningskull562", "se2p", "mindlord", "ItIsYeFish", "pivozavr2004", "latcyy", "LuckKir", "oggghrkwneh", "MiHoub", "David", "<span style='color:#55FFFF'>lkarch</span>", "MegaByteX", "ScaryCowCow4", "Glanthrial", "Deskfan45", "nielubiecie321", "BoomFox_Official", "DrDews", "DrNubXP", "hagluciak19", "<span style='color:#555555'>SavageUser</span>", "Fireballiceball", "JakeRedstone", "kaiookk1", "My_ChairSlipped", "j63k", "<span style='color:#FFFFFF'>jurc<span style='color:#FFFF55'>kurc</span></span>", "workingontrying", "KevinDurantgoat", "Creeperpaste", "Islando_Commando", "Migzotic", "Teasoup", "F8fnir", "JorgenMister", "isnikoda", "TrustedHawk1855", "<span style='color:#AA0000'>Re<span style='color:#FFAA00'>viv<span style='color:#AA0000'>ey</span></span></span>", "BleonIlazi", "AgentTammy", "Losangelesquest", "jeorm", "CrafterSteve98", "ilikemacandcheez", "NotRawZach", "herrydicc", "Hendway", "Pugino", "TeeDoesStuff", "TomAndBon", "SJET_Inc", "Urogalo", "arrochista", "JakePaulcraft", "WetBed43", "grammarissue", "pappoy76", "BurgerMan_27", "ilhanerdem2015", "BashurverseMC", "Batteryacids", "freddyw", "Acid0verl0ad", "CerealBoiz", "Q_QIndustries", "minerkat2011", "Capital3", "Assult_penguin", "NexSol", "DrWild", "nnnnn", "Jerry_juju", "hanxing", "Juasonxd", "Mikey_herobrine", "FluffyFoxFae", "Karmatical0", "ItsMxt", "Yen45", "Olat", "FredMCGamer", "capitanatomico", "DanielRobert15", "Hefeng_Song", "Leozero_", "MyGmail", "SkyNotBlue", "<span style='color:#5555FF'>el<span style='color:#FFFF55'>diegoat</span></span>", "huntermkk", "<span style='color:#55FFFF'>Its<span style='color:#55FF55'>Vollx</span></span>", "sonictank1", "Miyazaki", "Beanzo0", "VolxyzMC", "tvoreal", "sushi_king86", "KAMILE33", "pascal_machet", "barton1357TF2", "Yungyoungin1", "kleeorg", "SnailRibs", "<span style='color:#AA0000'>yours<span style='color:#AA00AA'>truly<span style='color:#FFAA00'>71</span></span></span>", "Csorroflegma", "ahhhhhhhh1587", "Lofeee", "mmakart", "adebuilder", "Jetteriter", "mud4dum", "Jesper2011", "GREENAPPLE", "<span style='color:#AA0000'>guinea_<span style='color:#0000AA'>rat</span></span>", "CreeperX200", "<span style='color:#FFAA00'>audemusjura</span>", "cutekttn", "bartur4", "Feruxia", "Kurzov", "MONKEYMAN346776", "breadcool", "Zaku1626", "<span style='color:#00AAAA'>keyboardan</span>", "tetunnel", "ItTommy22Toad", "<span style='color:#55FF55'>Fulgencio</span>", "inoxisane", "q0iat", "<span style='color:#00AA00'>Levinder</span>", "aidenjamesmcl", "BastianSeb", "Nathan20093420", "Cowcreeper", "Gow_", "charlie_keogh", "non_oggi", "Bartur4", "CookiezWithCream"];
+const memberList = ["<span class='&b'>Om<span class='&5'>te<span class='&7'>gu</span></span></span>", "pupik923", "<span class='&6'>Tellow</span>", "JoeTheDauntless", "black_frieza", "Jinx64_", "<span class='&9'>el<span class='&e'>diego</span></span>", "Gero06", "Spencer1019", "mrcreeperg4", "<span class='&6'>Tired<span class='&5'>Toonz</span></span>", "idan1503", "<span class='&d'>Wormzy<span class='&5'>333</span></span>", "<span class='&1'>Colorado<span class='&4'>Crusade</span></span>", "spenten", "Geogaddiiii", "Austcd30", "MyNameIsRasheed", "MrSteam84", "TwoGoodFiveme", "ara2009", "Ransterr", "ItzFriez6312", "ArzoAblaze", "jssjsjjssj", "toiletteeth", "B8arn", "FredDerp", "Georgequank", "hunterg2i", "<span class='&1'>Karma<span class='&9'>Is<span class='&3'>D<span class='&8'>epressed</span></span></span></span>", "Mini", "ChilliChillt", "ServerLite", "proper_cat", "Master__Kief", "ItzBiblcle", "MrAss_asd", "Burningskull562", "se2p", "mindlord", "ItIsYeFish", "pivozavr2004", "latcyy", "LuckKir", "oggghrkwneh", "MiHoub", "David", "<span class='&b'>lkarch</span>", "MegaByteX", "ScaryCowCow4", "Glanthrial", "Deskfan45", "nielubiecie321", "BoomFox_Official", "DrDews", "DrNubXP", "hagluciak19", "<span class='&8'>SavageUser</span>", "Fireballiceball", "JakeRedstone", "kaiookk1", "My_ChairSlipped", "j63k", "<span class='color:&f'>jurc<span class='&e'>kurc</span></span>", "workingontrying", "KevinDurantgoat", "Creeperpaste", "Islando_Commando", "Migzotic", "Teasoup", "F8fnir", "JorgenMister", "isnikoda", "TrustedHawk1855", "<span class='&4'>Re<span class='&6'>viv<span class='&4'>ey</span></span></span>", "BleonIlazi", "AgentTammy", "Losangelesquest", "jeorm", "CrafterSteve98", "ilikemacandcheez", "NotRawZach", "herrydicc", "Hendway", "Pugino", "TeeDoesStuff", "TomAndBon", "SJET_Inc", "Urogalo", "arrochista", "JakePaulcraft", "WetBed43", "grammarissue", "pappoy76", "BurgerMan_27", "ilhanerdem2015", "BashurverseMC", "Batteryacids", "freddyw", "Acid0verl0ad", "CerealBoiz", "Q_QIndustries", "minerkat2011", "Capital3", "Assult_penguin", "NexSol", "DrWild", "nnnnn", "Jerry_juju", "hanxing", "Juasonxd", "Mikey_herobrine", "FluffyFoxFae", "Karmatical0", "ItsMxt", "Yen45", "Olat", "FredMCGamer", "capitanatomico", "DanielRobert15", "Hefeng_Song", "Leozero_", "MyGmail", "SkyNotBlue", "<span class='&9'>el<span class='&e'>diegoat</span></span>", "huntermkk", "<span class='&b'>Its<span class='&a'>Vollx</span></span>", "sonictank1", "Miyazaki", "Beanzo0", "VolxyzMC", "tvoreal", "sushi_king86", "KAMILE33", "pascal_machet", "barton1357TF2", "Yungyoungin1", "kleeorg", "SnailRibs", "<span class='&4'>yours<span class='&5'>truly<span class='&6'>71</span></span></span>", "Csorroflegma", "ahhhhhhhh1587", "Lofeee", "mmakart", "adebuilder", "Jetteriter", "mud4dum", "Jesper2011", "GREENAPPLE", "<span class='&4'>guinea_<span class='&1'>rat</span></span>", "CreeperX200", "<span class='&6'>audemusjura</span>", "cutekttn", "bartur4", "Feruxia", "Kurzov", "MONKEYMAN346776", "breadcool", "Zaku1626", "<span class='&3'>keyboardan</span>", "tetunnel", "ItTommy22Toad", "<span class='&a'>Fulgencio</span>", "inoxisane", "q0iat", "<span class='&2'>Levinder</span>", "aidenjamesmcl", "BastianSeb", "Nathan20093420", "Cowcreeper", "Gow_", "charlie_keogh", "non_oggi", "Bartur4", "CookiezWithCream"];
 
-/* Black        &0 #000000
-	 Dark Blue    &1 #0000AA
-	 Dark Green   &2 #00AA00
-	 Dark Aqua    &3 #00AAAA
-	 Dark Red     &4 #AA0000
-	 Dark Purple  &5 #AA00AA
-	 Gold         &6 #FFAA00
-	 Gray         &7 #AAAAAA
-	 Dark Gray    &8 #555555
-	 Blue         &9 #5555FF
-	 Green        &a #55FF55
-	 Aqua         &b #55FFFF
-	 Red          &c #FF5555
-	 Light Purple &d #FF55FF
-	 Yellow       &e #FFFF55
-	 White        &f #FFFFFF */
+const colorCodes = ["&0", "&1", "&2", "&3", "&4", "&5", "&6", "&7", "&8", "&9", "&a", "&b", "&c", "&d", "&e", "&f"]
+const colorCodeColors = ["#000000", "#0000AA", "#00AA00", "#00AAAA", "#AA0000", "#AA00AA", "#FFAA00", "#AAAAAA", "#555555", "#5555FF", "#55FF55", "#55FFFF", "#FF5555", "#FF55FF", "#FFFF55", "#FFFFFF"]
 
 let splashes = ["Totally not rigged!!!", "New Lameful", "What's Uptown?", nnRuler + " approves!", "♫I've been workin' on the railroad♫", "Also visit CalvinTown", "Also visit IkeaLand", "Also visit Matsunoki", "Also visit MillField", "Also visit Jurcgrad", "Also visit Spawn 2025", "Brought to you by the NNNNNNNNNN", "<b><i>Dig the Cube</i></b>", "Featured Players: " + keyboardanTroll() + " and " + keyboardanTroll(), "Urban Sprawl!", "Invest in WormzyCoin!", "New and Improved!", "Omtegu!", "do /pay new_nameful 20 for good luck", "my asshole hurts", "The most extravagant group project", "That damn cube…", "what the nameful", "Vote Karma!", "Cobble ceiling has been removed.", "railroad fetish", "ColoradoCrusade!", "MississipiMuslim!!", "PennsylvaniaPacifist!", "Haiiiii Lkarchhhh :3", "23% approved!", "67% approved!", "71% approved!", "Now updated to 1.21.5", "hardly know her", "Praise be thine", "Beware the NBP", "/lmk NewNameful", "Coded by Lkarch", "Just one more rail line…", "I think I get why they call it Minecraft", "Why isn’t there a New Nameful 2?", "The townsfolk get a little quirky at night.", "/pay keyboardan 100", "Cube 3 coming soon!", "\"Mildly funny splash text here\"", "Also try Old Nameful"];
 
@@ -69,7 +55,6 @@ function calculateCountdown(endingDate) {
   let end = new Date(endingDate);
   let timeDifference = end - current;
   let daysDifference = timeDifference / (1000 * 3600 * 24);
-  // console.log(current + " " + end + " " + timeDifference + " " + daysDifference);
   return daysDifference;
 }
 
@@ -88,13 +73,13 @@ function randomizeUser() {
   return randomUser;
 }
 
-var ip;
-function getClientIPAddress() {
-  fetch("https://api.ipify.org?format=json")
-    .then(response => response.json())
-    .then(data => {
-      ip = data.ip;
-    })
+function processColorCodes() {
+  for (let colorCode = 0; colorCode < colorCodes.length; colorCode++) {
+    for (let colorCodeClass = 0; colorCodeClass < document.getElementsByClassName(colorCodes[colorCode]).length; colorCodeClass++) {
+      document.getElementsByClassName(colorCodes[colorCode])[colorCodeClass].style = "color: " + colorCodeColors[colorCode] + ";"
+    }
+  }
+  console.log("Processed color codes!")
 }
 
 function switchSection(sectionName, button) {
@@ -120,11 +105,11 @@ function switchSection(sectionName, button) {
 function loadRulersAndElectionCountdown() {
   console.log("Ruler found: \"" + nnRuler + "\"");
   document.getElementById("ruler").innerText = nnRuler;
-  document.getElementById("rulerImage").src = "https://minotar.net/armor/body/" + nnRuler + "/100.png";
+  document.getElementById("rulerAttachment").src = "https://minotar.net/armor/body/" + nnRuler + "/100.png";
 
   console.log("Co-ruler found: \"" + nnCoRuler + "\"");
   document.getElementById("coRuler").innerText = nnCoRuler;
-  document.getElementById("coRulerImage").src = "https://minotar.net/armor/body/" + nnCoRuler + "/100.png";
+  document.getElementById("coRulerAttachment").src = "https://minotar.net/armor/body/" + nnCoRuler + "/100.png";
 
   console.log("Next election occurs in " + calculateCountdown(electionDate) + " days");
 
@@ -189,72 +174,55 @@ function loadMemberList() {
   }
 }
 
-function loadAnnouncements() {
-  fetch("/assets/json/announcements/announcements.json")
+function loadDiscordMessagesFromJson(jsonName, addMessageContent, addAttachments, attachmentLinkOrEmbed) {
+  fetch("/assets/json/" + jsonName + "/" + jsonName + ".json")
   .then(response => response.json())
   .then(json => {
     json.messages.reverse();
     for (let message = 0; message < json.messages.length; message++) {
-      let announcementContainer = document.createElement("div");
-      let announcementTitle = document.createElement("p");
-      let announcementDate = new Date(json.messages[message].timestamp);
-      let announcementLine = document.createElement("hr");
-      let announcementContent = document.createElement("p");
+      let messageContainer = document.createElement("div");
+      let messageTitle = document.createElement("p");
+      let messageDate = new Date(json.messages[message].timestamp);
+      let messageLine = document.createElement("hr");
 
-      announcementContainer.className = "card";
-      announcementContainer.id = "announcement" + message;
-      announcementContainer.style = "overflow: hidden;";
-      announcementTitle.innerText = json.messages[message].author.nickname + " | " + announcementDate.toLocaleDateString();
-      announcementContent.innerText = json.messages[message].content;
+      messageContainer.className = "card";
+      messageContainer.id = jsonName + message;
+      messageContainer.style = "overflow: hidden;";
+      messageTitle.innerText = json.messages[message].author.nickname + " | " + messageDate.toLocaleDateString();
 
-      document.getElementById("announcements").append(announcementContainer);
-      document.getElementById(announcementContainer.id).append(announcementTitle,announcementLine,announcementContent);
+      document.getElementById(jsonName).append(messageContainer);
+      document.getElementById(messageContainer.id).append(messageTitle, messageLine);
 
-      for (let attachment = 0; attachment < json.messages[message].attachments.length; attachment++) {
-        let announcementAttachment = document.createElement("a");
+      if (addMessageContent == true) {
+        let messageContent = document.createElement("p");
 
-        announcementAttachment.className = "announcementImage";
-        announcementAttachment.href = "/assets/json/announcements/" + json.messages[message].attachments[attachment].url;
-        announcementAttachment.innerText = json.messages[message].attachments[attachment].url.replace("media/", "");
+        messageContent.innerText = json.messages[message].content;
 
-        document.getElementById(announcementContainer.id).append(announcementAttachment);
+        document.getElementById(messageContainer.id).append(messageContent);
       }
-    }
-  });
-  document.getElementById("loadingAnnouncements").remove();
-}
 
-function loadNews() {
-  fetch("/assets/json/newnamefulnewsnotice/newnamefulnewsnotice.json")
-  .then(response => response.json())
-  .then(json => {
-    json.messages.reverse();
-    for (let message = 0; message < json.messages.length; message++) {
-      if (json.messages[message].attachments.length > 0) {
-        let newsContainer = document.createElement("div");
-        let newsTitle = document.createElement("p");
-        let newsDate = new Date(json.messages[message].timestamp);
-        let newsLine = document.createElement("hr");
-
-        newsContainer.className = "card";
-        newsContainer.id = "post" + message;
-        newsTitle.innerText = json.messages[message].author.nickname + " | " + newsDate.toLocaleDateString();
-
-        document.getElementById("news").append(newsContainer);
-        document.getElementById(newsContainer.id).append(newsTitle,newsLine);
-
+      if (addAttachments == true) {
         for (let attachment = 0; attachment < json.messages[message].attachments.length; attachment++) {
-          let newsAttachment = document.createElement("img");
+          if (attachmentLinkOrEmbed === "link") {
+            let messageAttachment = document.createElement("a");
+            
+            messageAttachment.className = "messageAttachment";
+            messageAttachment.href = "/assets/json/" + jsonName + "/" + json.messages[message].attachments[attachment].url;
+            messageAttachment.innerText = json.messages[message].attachments[attachment].url.replace("media/", "");
+            
+            document.getElementById(messageContainer.id).append(messageAttachment);
+          } else if (attachmentLinkOrEmbed === "embed") {
+            let messageAttachment = document.createElement("img");
 
-          newsAttachment.className = "newsImage";
-          newsAttachment.src = "/assets/json/newnamefulnewsnotice/" + json.messages[message].attachments[attachment].url;
+            messageAttachment.className = "messageAttachment";
+            messageAttachment.src = "/assets/json/" + jsonName + "/" + json.messages[message].attachments[attachment].url;
 
-          document.getElementById(newsContainer.id).append(newsAttachment);
+            document.getElementById(messageContainer.id).append(messageAttachment);
+          }
         }
       }
     }
   });
-  document.getElementById("loadingNews").remove();
 }
 
 function onPageLoad() {
@@ -269,12 +237,12 @@ function onPageLoad() {
     document.getElementById(getCookie("section") + "Button").click();
   }
 
-  getClientIPAddress();
   loadRulersAndElectionCountdown();
   loadConstitution();
   loadMemberList();
-  loadAnnouncements();
-  loadNews();
+  loadDiscordMessagesFromJson("announcements", true, true, "link");
+  loadDiscordMessagesFromJson("newnamefulnewsnotice", false, true, "embed");
+  processColorCodes();
   randomizeSplash();
 }
 
@@ -283,7 +251,7 @@ function loadArchive() {
     let archiveAttachment = document.createElement("img");
 
 
-    archiveAttachment.className = "archiveImage";
+    archiveAttachment.className = "archiveAttachment";
     archiveAttachment.src = "/archive/archive-" + archive;
 
     document.body.append(archiveAttachment);
