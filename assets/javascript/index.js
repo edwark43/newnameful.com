@@ -207,15 +207,15 @@ function loadDiscordMessagesFromJson(jsonName, addMessageContent, addAttachments
             let messageAttachment = document.createElement("a");
             
             messageAttachment.className = "messageAttachment";
-            messageAttachment.href = "/assets/json/" + jsonName + "/" + json.messages[message].attachments[attachment].url;
-            messageAttachment.innerText = json.messages[message].attachments[attachment].url.replace("media/", "");
+            messageAttachment.href = json.messages[message].attachments[attachment].url;
+            messageAttachment.innerText = json.messages[message].attachments[attachment].url;
             
             document.getElementById(messageContainer.id).append(messageAttachment);
           } else if (attachmentLinkOrEmbed === "embed") {
             let messageAttachment = document.createElement("img");
 
             messageAttachment.className = "messageAttachment";
-            messageAttachment.src = "/assets/json/" + jsonName + "/" + json.messages[message].attachments[attachment].url;
+            messageAttachment.src = json.messages[message].attachments[attachment].url;
 
             document.getElementById(messageContainer.id).append(messageAttachment);
           }
@@ -240,7 +240,7 @@ function onPageLoad() {
   loadRulersAndElectionCountdown();
   loadConstitution();
   loadMemberList();
-  loadDiscordMessagesFromJson("announcements", true, true, "link");
+  loadDiscordMessagesFromJson("announcements", true, true, "embed");
   loadDiscordMessagesFromJson("newnamefulnewsnotice", false, true, "embed");
   processColorCodes();
   randomizeSplash();
