@@ -181,17 +181,20 @@ function loadDiscordMessagesFromJson(jsonName, addMessageContent, addAttachments
     json.messages.reverse();
     for (let message = 0; message < json.messages.length; message++) {
       let messageContainer = document.createElement("div");
+      let messageAuthorAvatar = document.createElement("img");
       let messageTitle = document.createElement("p");
       let messageDate = new Date(json.messages[message].timestamp);
       let messageLine = document.createElement("hr");
 
       messageContainer.className = "card";
       messageContainer.id = jsonName + message;
-      messageContainer.style = "overflow: hidden;";
-      messageTitle.innerText = json.messages[message].author.nickname + " | " + messageDate.toLocaleDateString();
+      messageAuthorAvatar.className = "messageAuthorAvatar";
+      messageAuthorAvatar.src = json.messages[message].author.avatarUrl;
+      messageTitle.style = "margin-top: 5px;"
+      messageTitle.innerHTML = "<span style='color: " + json.messages[message].author.color + ";'>" + json.messages[message].author.nickname + "</span>" + " | " + messageDate.toLocaleDateString();
 
       document.getElementById(jsonName).append(messageContainer);
-      document.getElementById(messageContainer.id).append(messageTitle, messageLine);
+      document.getElementById(messageContainer.id).append(messageAuthorAvatar, messageTitle, messageLine);
 
       if (addMessageContent == true) {
         let messageContent = document.createElement("p");
@@ -208,7 +211,7 @@ function loadDiscordMessagesFromJson(jsonName, addMessageContent, addAttachments
             
             messageAttachment.className = "messageAttachment";
             messageAttachment.href = json.messages[message].attachments[attachment].url;
-            messageAttachment.innerText = json.messages[message].attachments[attachment].url;
+            messageAttachment.innerText = json.messages[message].attachments[attachment].fileName;
             
             document.getElementById(messageContainer.id).append(messageAttachment);
           } else if (attachmentLinkOrEmbed === "embed") {

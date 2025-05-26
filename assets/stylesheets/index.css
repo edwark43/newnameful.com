@@ -55,6 +55,7 @@ body {
   margin-bottom: 20px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
   width: 90%;
+  overflow: hidden;
 }
 
 .card p {
@@ -138,6 +139,11 @@ body {
 .messageAttachment {
   padding: 10px;
   width: 75%;
+}
+
+.messageAuthorAvatar {
+  width: 64px;
+  border-radius: 100%;
 }
 
 
