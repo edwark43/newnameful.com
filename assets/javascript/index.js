@@ -260,18 +260,11 @@ function onPageLoad() {
     console.log("Page cookie found, restoring page to \"" + getCookie("page") + "\"");
     document.getElementById(getCookie("page") + "-button").click();
   }
-
-  // electionLoad();
-  // constitutionLoad();
-  // membersLoad();
-  // announcementsLoad();
-  // newnamefulnewsnoticeLoad();
 }
 
 function loadArchive() {
   for (let archive = 0; archive < 3; archive++) {
     let archiveAttachment = document.createElement("img");
-
 
     archiveAttachment.className = "archive-attachment";
     archiveAttachment.src = "/archive/archive-" + archive;
