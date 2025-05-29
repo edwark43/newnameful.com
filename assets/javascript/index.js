@@ -1,5 +1,6 @@
 const url = new URL(window.location.toLocaleString());
-const sectionList = document.getElementsByClassName("section");
+const pageList = document.getElementsByClassName("page");
+const loaded = []
 
 const nnRuler = "cool_tellow";
 const nnCoRuler = "ColoradoCrusade";
@@ -82,98 +83,6 @@ function processColorCodes() {
   console.log("Processed color codes!")
 }
 
-function switchSection(sectionName, button) {
-  for (let i = 0; i < sectionList.length; i++) {
-    sectionList[i].style.display = "none";
-  }
-
-  let navButton = document.getElementsByClassName("navButton");
-  for (let i = 0; i < navButton.length; i++) {
-    navButton[i].style.backgroundColor = "black";
-    navButton[i].style.color = "white";
-  }
-  
-  document.title = button.innerText;
-  document.cookie = "section=" + sectionName;
-
-  document.getElementById(sectionName).style.display = "block";
-
-  button.style.backgroundColor = "white";
-  button.style.color = "black";
-}
-
-function loadRulersAndElectionCountdown() {
-  console.log("Ruler found: \"" + nnRuler + "\"");
-  document.getElementById("ruler").innerText = nnRuler;
-  document.getElementById("rulerAttachment").src = "https://minotar.net/armor/body/" + nnRuler + "/100.png";
-
-  console.log("Co-ruler found: \"" + nnCoRuler + "\"");
-  document.getElementById("coRuler").innerText = nnCoRuler;
-  document.getElementById("coRulerAttachment").src = "https://minotar.net/armor/body/" + nnCoRuler + "/100.png";
-
-  console.log("Next election occurs in " + calculateCountdown(electionDate) + " days");
-
-
-  if (Math.ceil(calculateCountdown(electionDate)) <= 0) {
-    document.getElementById("electionCountdown").innerText = "The next election is RIGHT NOW!!!";
-  } else {
-    document.getElementById("electionCountdown").innerText = "The next election is in " + Math.ceil(calculateCountdown(electionDate)) + " days!";
-  }
-}
-
-function randomizeSplash() {
-  let randomSplash = splashes[Math.floor(Math.random() * splashes.length)];
-  console.log("Splash randomized to \"" + randomSplash +"\"");
-
-  document.getElementById("splash").innerHTML = randomSplash;
-}
-
-function loadConstitution() {
-  for (let constitutionSection = 0; constitutionSection < constitutionSections.length; constitutionSection++) {
-    let constitutionSectionName = constitutionSections[constitutionSection].toLowerCase();
-    let constitutionSectionContainer = document.createElement("div");
-    let constitutionSectionTitle = document.createElement("p");
-    let constitutionLine = document.createElement("hr");
-
-    constitutionSectionContainer.className = "card";
-    constitutionSectionContainer.id = constitutionSectionName + "ConstitutionSection";
-    constitutionSectionTitle.innerText = constitutionSections[constitutionSection];
-
-    document.getElementById("constitution").append(constitutionSectionContainer);
-    document.getElementById(constitutionSectionContainer.id).append(constitutionSectionTitle,constitutionLine);
-
-    if (typeof (constitutionPreambles[constitutionSection]) !== "undefined") {
-      let sectionPreamble = document.createElement("div");
-
-      sectionPreamble.id = constitutionSectionName + "Preamble";
-      sectionPreamble.innerText = constitutionPreambles[constitutionSection];
-
-      document.getElementById(constitutionSectionContainer.id).append(sectionPreamble);
-    }
-
-    for (let amendment = 0; amendment < constitutionAmendments[constitutionSection].length; amendment++) {
-      let amendmentContent = document.createElement("p");
-
-      amendmentContent.class = "amendment";
-      amendmentContent.id = constitutionSections[constitutionSection] + "Amendment" + amendment;
-      amendmentContent.innerText = amendment + 1 + ") " + constitutionAmendments[constitutionSection][amendment];
-
-
-      document.getElementById(constitutionSectionContainer.id).append(amendmentContent);
-    }
-  }
-}
-
-function loadMemberList() {
-  for (let member = 0; member < memberList.length; member++) {
-    let memberListItem = document.createElement("p");
-    memberListItem.innerHTML = memberList[member];
-
-    document.getElementById("memberCount").innerText = "Member Count: " + memberList.length;
-    document.getElementById("memberList").append(memberListItem);
-  }
-}
-
 function loadDiscordMessagesFromJson(jsonName, addMessageContent, addAttachments, attachmentLinkOrEmbed) {
   fetch("/assets/json/" + jsonName + "/" + jsonName + ".json")
   .then(response => response.json())
@@ -187,9 +96,9 @@ function loadDiscordMessagesFromJson(jsonName, addMessageContent, addAttachments
       let messageLine = document.createElement("hr");
 
       messageContainer.className = "card";
-      messageContainer.id = jsonName + message;
-      messageAuthorAvatar.className = "messageAuthorAvatar";
-      messageAuthorAvatar.src = json.messages[message].author.avatarUrl;
+      messageContainer.id = jsonName + "-" + message;
+      messageAuthorAvatar.className = "message-author-avatar";
+      messageAuthorAvatar.src = "/assets/json/" + jsonName + "/" + json.messages[message].author.avatarUrl;
       messageTitle.style = "margin-top: 5px;"
       messageTitle.innerHTML = "<span style='color: " + json.messages[message].author.color + ";'>" + json.messages[message].author.nickname + "</span>" + " | " + messageDate.toLocaleDateString();
 
@@ -205,48 +114,158 @@ function loadDiscordMessagesFromJson(jsonName, addMessageContent, addAttachments
       }
 
       if (addAttachments == true) {
+        let messageAttachment;
         for (let attachment = 0; attachment < json.messages[message].attachments.length; attachment++) {
           if (attachmentLinkOrEmbed === "link") {
-            let messageAttachment = document.createElement("a");
+            messageAttachment = document.createElement("a");
             
-            messageAttachment.className = "messageAttachment";
-            messageAttachment.href = json.messages[message].attachments[attachment].url;
+            messageAttachment.href = "/assets/json/" + jsonName + json.messages[message].attachments[attachment].url;
             messageAttachment.innerText = json.messages[message].attachments[attachment].fileName;
             
-            document.getElementById(messageContainer.id).append(messageAttachment);
           } else if (attachmentLinkOrEmbed === "embed") {
-            let messageAttachment = document.createElement("img");
+            messageAttachment = document.createElement("img");
 
-            messageAttachment.className = "messageAttachment";
-            messageAttachment.src = json.messages[message].attachments[attachment].url;
+            messageAttachment.src = "/assets/json/" + jsonName + "/" + json.messages[message].attachments[attachment].url;
 
             document.getElementById(messageContainer.id).append(messageAttachment);
           }
+          messageAttachment.className = "message-attachment";
+          document.getElementById(messageContainer.id).append(messageAttachment);
         }
       }
     }
   });
 }
 
-function onPageLoad() {
-  if (url.searchParams.has("section")) {
-    console.log("URL parameter found, forcing section to \"" + url.searchParams.get("section") + "\"");
-    document.getElementById(url.searchParams.get("section") + "Button").click();
-  } else if (getCookie("section") === "") {
-    console.log("A wild user appears! Defaulting to first section, \"" + sectionList[0].id + "\"");
-    document.getElementById(sectionList[0].id + "Button").click();
-  } else {
-    console.log("Section cookie found, restoring section to \"" + getCookie("section") + "\"");
-    document.getElementById(getCookie("section") + "Button").click();
+function switchPage(pageName, button) {
+  for (let page = 0; page < pageList.length; page++) {
+    pageList[page].style.display = "none";
   }
 
-  loadRulersAndElectionCountdown();
-  loadConstitution();
-  loadMemberList();
-  loadDiscordMessagesFromJson("announcements", true, true, "embed");
-  loadDiscordMessagesFromJson("newnamefulnewsnotice", false, true, "embed");
-  processColorCodes();
+  let navButtons = document.getElementsByClassName("nav-button");
+  for (let navButton = 0; navButton < navButtons.length; navButton++) {
+    navButtons[navButton].style.backgroundColor = "black";
+    navButtons[navButton].style.color = "white";
+  }
+  
+  document.title = button.innerText;
+  document.cookie = "page=" + pageName;
+
+  document.getElementById(pageName).style.display = "block";
+
+  button.style.backgroundColor = "white";
+  button.style.color = "black";
+
+  for (let page = 0; page <= loaded.length; page++) {
+    if (! loaded.includes(pageName)) {
+      loaded.push(pageName);
+      window[pageName + "Load"]();
+    }
+  }
+}
+
+function infoLoad() {
   randomizeSplash();
+}
+
+function electionLoad() {
+  console.log("Ruler found: \"" + nnRuler + "\"");
+  document.getElementById("ruler").innerText = nnRuler;
+  document.getElementById("ruler-attachment").src = "https://minotar.net/armor/body/" + nnRuler + "/100.png";
+
+  console.log("Co-ruler found: \"" + nnCoRuler + "\"");
+  document.getElementById("co-ruler").innerText = nnCoRuler;
+  document.getElementById("co-ruler-attachment").src = "https://minotar.net/armor/body/" + nnCoRuler + "/100.png";
+
+  console.log("Next election occurs in " + calculateCountdown(electionDate) + " days");
+
+
+  if (Math.ceil(calculateCountdown(electionDate)) <= 0) {
+    document.getElementById("election-countdown").innerText = "The next election is RIGHT NOW!!!";
+  } else {
+    document.getElementById("election-countdown").innerText = "The next election is in " + Math.ceil(calculateCountdown(electionDate)) + " days!";
+  }
+}
+
+function randomizeSplash() {
+  let randomSplash = splashes[Math.floor(Math.random() * splashes.length)];
+  console.log("Splash randomized to \"" + randomSplash +"\"");
+
+  document.getElementById("splash").innerHTML = randomSplash;
+}
+
+function constitutionLoad() {
+  for (let constitutionSection = 0; constitutionSection < constitutionSections.length; constitutionSection++) {
+    let constitutionSectionName = constitutionSections[constitutionSection].toLowerCase();
+    let constitutionSectionContainer = document.createElement("div");
+    let constitutionSectionTitle = document.createElement("p");
+    let constitutionLine = document.createElement("hr");
+
+    constitutionSectionContainer.className = "card";
+    constitutionSectionContainer.id = constitutionSectionName + "-constitution-section";
+    constitutionSectionTitle.innerText = constitutionSections[constitutionSection];
+
+    document.getElementById("constitution").append(constitutionSectionContainer);
+    document.getElementById(constitutionSectionContainer.id).append(constitutionSectionTitle,constitutionLine);
+
+    if (typeof (constitutionPreambles[constitutionSection]) !== "undefined") {
+      let sectionPreamble = document.createElement("div");
+
+      sectionPreamble.id = constitutionSectionName + "-preamble";
+      sectionPreamble.innerText = constitutionPreambles[constitutionSection];
+
+      document.getElementById(constitutionSectionContainer.id).append(sectionPreamble);
+    }
+
+    for (let amendment = 0; amendment < constitutionAmendments[constitutionSection].length; amendment++) {
+      let amendmentContent = document.createElement("p");
+
+      amendmentContent.class = "amendment";
+      amendmentContent.id = constitutionSections[constitutionSection].toLowerCase() + "-amendment-" + amendment;
+      amendmentContent.innerText = amendment + 1 + ") " + constitutionAmendments[constitutionSection][amendment];
+
+
+      document.getElementById(constitutionSectionContainer.id).append(amendmentContent);
+    }
+  }
+}
+
+function membersLoad() {
+  for (let member = 0; member < memberList.length; member++) {
+    let memberListItem = document.createElement("p");
+    memberListItem.innerHTML = memberList[member];
+
+    document.getElementById("member-count").innerText = "Member Count: " + memberList.length;
+    document.getElementById("member-list").append(memberListItem);
+  }
+  processColorCodes();
+}
+
+function announcementsLoad() {
+  loadDiscordMessagesFromJson("announcements", true, true, "embed");
+}
+
+function newnamefulnewsnoticeLoad() {
+  loadDiscordMessagesFromJson("newnamefulnewsnotice", false, true, "embed");
+}
+
+function onPageLoad() {
+  if (url.searchParams.has("page")) {
+    console.log("URL parameter found, forcing page to \"" + url.searchParams.get("page") + "\"");
+    document.getElementById(url.searchParams.get("page") + "-button").click();
+  } else if (getCookie("page") === "") {
+    console.log("A wild user appears! Defaulting to first page, \"" + pageList[0].id + "\"");
+    document.getElementById(pageList[0].id + "-button").click();
+  } else {
+    console.log("Page cookie found, restoring page to \"" + getCookie("page") + "\"");
+    document.getElementById(getCookie("page") + "-button").click();
+  }
+
+  // electionLoad();
+  // constitutionLoad();
+  // membersLoad();
+  // announcementsLoad();
+  // newnamefulnewsnoticeLoad();
 }
 
 function loadArchive() {
@@ -254,7 +273,7 @@ function loadArchive() {
     let archiveAttachment = document.createElement("img");
 
 
-    archiveAttachment.className = "archiveAttachment";
+    archiveAttachment.className = "archive-attachment";
     archiveAttachment.src = "/archive/archive-" + archive;
 
     document.body.append(archiveAttachment);

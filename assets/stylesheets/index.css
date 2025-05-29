@@ -67,14 +67,6 @@ body {
   margin: auto;
 }
 
-.cardContainer {
-  margin: auto;
-  padding: 15px;
-  margin-bottom: 20px;
-  width: 90%;
-  height: 220;
-}
-
 #splash {
     color: #FFFF00;
     font-size: 1.5em;
@@ -94,7 +86,7 @@ body {
     animation: pop 0.58s infinite;
 }
 
-.section {
+.page {
   display: none;
   padding: 95px 20px 20px;
 }
@@ -105,7 +97,7 @@ body {
   background-color: black;
 }
 
-.navButton {
+.nav-button {
   float: left;
   padding: 10px 20px;
   border: none;
@@ -116,7 +108,7 @@ body {
   color: white;
 }
 
-.navButton:hover {
+.nav-button:hover {
   background-color: white !important;
   color: black !important;
 }
@@ -129,25 +121,25 @@ body {
 
 #footer a {
   color: white;
+  font-size: 15px;
 }
 
-.infoAttachment {
+.info-attachment {
   padding: 10px;
   width: 75%;
 }
 
-.messageAttachment {
+.message-attachment {
   padding: 10px;
   width: 75%;
 }
 
-.messageAuthorAvatar {
+.message-author-avatar {
   width: 64px;
   border-radius: 100%;
 }
 
-
-.archiveAttachment {
+.archive-attachment {
   padding: 10px;
   width: 75%;
 }
