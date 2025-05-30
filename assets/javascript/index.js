@@ -1,6 +1,8 @@
 const url = new URL(window.location.toLocaleString());
+
 const pageList = document.getElementsByClassName("page");
-const loaded = []
+const loaded = [];
+var currentPage;
 
 const nnRuler = "cool_tellow";
 const nnCoRuler = "ColoradoCrusade";
@@ -138,6 +140,8 @@ function loadDiscordMessagesFromJson(jsonName, addMessageContent, addAttachments
 }
 
 function switchPage(pageName, button) {
+  currentPage = pageName;
+
   for (let page = 0; page < pageList.length; page++) {
     pageList[page].style.display = "none";
   }
@@ -242,11 +246,14 @@ function membersLoad() {
 }
 
 function announcementsLoad() {
-  loadDiscordMessagesFromJson("announcements", true, true, "embed");
+  // loadDiscordMessagesFromJson("announcements", true, true, "embed");
+  addDiscordCards(window[currentPage + "CurrentIndex"], "announcements", true, true, "embed");
 }
 
 function newnamefulnewsnoticeLoad() {
-  loadDiscordMessagesFromJson("newnamefulnewsnotice", false, true, "embed");
+  // loadDiscordMessagesFromJson("newnamefulnewsnotice", false, true, "embed");
+  addDiscordCards(window[currentPage + "CurrentIndex"], "newnamefulnewsnotice", false, true, "embed");
+  window.addEventListener("scroll", handleInfiniteScroll);
 }
 
 function onPageLoad() {
