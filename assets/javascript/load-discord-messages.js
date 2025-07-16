@@ -3,7 +3,6 @@ const cardIncrease = 10;
 var announcementsCardLimit;
 var announcementsCurrentIndex = 0;
 
-
 var newnamefulnewsnoticeCardLimit;
 var newnamefulnewsnoticeCurrentIndex = 0;
 
