@@ -37,13 +37,13 @@ async function electionLoad() {
 
   let countdown = document.createElement("p")
   
-  if (Math.ceil(calculateCountdown(electionDate)) <= 0) {
+  if (Math.ceil(calculateCountdown(election.electionDate)) <= 0) {
     countdown.innerText = "The next election is RIGHT NOW!!!";
   } else {
     countdown.innerText = "The next election is in " + Math.ceil(calculateCountdown(election.electionDate)) + " days!";
   }
 
-  console.log("Next election occurs in " + calculateCountdown(electionDate) + " days");
+  console.log("Next election occurs in " + calculateCountdown(election.electionDate) + " days");
   document.getElementById("election").append(countdown);
 
 }
