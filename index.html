@@ -12,89 +12,76 @@
   </head>
   <body onload="onPageLoad()">
     <div id="navbar">
-      <button class="navButton" id="infoButton" onclick="switchSection('info', this)">Info</button>
-      <button class="navButton" id="electionButton" onclick="switchSection('election', this)">Election</button>
-      <button class="navButton" id="constitutionButton" onclick="switchSection('constitution', this)">Constitution</button>
-      <button class="navButton" id="membersButton" onclick="switchSection('members', this)">Members</button>
-      <button class="navButton" id="announcementsButton" onclick="switchSection('announcements', this)">Announcements</button>
-      <button class="navButton" id="newnamefulnewsnoticeButton" onclick="switchSection('newnamefulnewsnotice', this)">News</button>
-      <!-- <button class="navButton" id="historyButton" onclick="switchSection('history', this)">History</button> -->
-      <button class="navButton" id="discordButton" onclick="window.location.href = 'https://discord.newnameful.com'">Discord</button>
+      <button class="nav-button" id="info-button" onclick="switchPage('info', this)">Info</button>
+      <button class="nav-button" id="election-button" onclick="switchPage('election', this)">Election</button>
+      <button class="nav-button" id="constitution-button" onclick="switchPage('constitution', this)">Constitution</button>
+      <button class="nav-button" id="members-button" onclick="switchPage('members', this)">Members</button>
+      <button class="nav-button" id="announcements-button" onclick="switchPage('announcements', this)">Announcements</button>
+      <button class="nav-button" id="newnamefulnewsnotice-button" onclick="switchPage('newnamefulnewsnotice', this)">News</button>
+      <!-- <button class="nav-button" id="history-button" onclick="switchPage('history', this)">History</button> -->
+      <button class="nav-button" id="discord-button" onclick="window.location.href = 'https://discord.newnameful.com'">Discord</button>
     </div>
-    <div class="section" id="info">
-      <img src="/assets/images/info/NamefulLogo.png" alt="">
+    <div class="page" id="info">
+      <img src="/assets/images/info/new-nameful-logo.png" alt="">
       <div class="tilt">
         <div id="splash" class="pop"></div>
       </div>
-      <div class="card" id="infoIntroduction">
+      <div class="card" id="info-introduction">
         <p>Introduction</p>
         <hr>
         <p>A large, populous town with great infrastructure, a good community, grand opportunities, and influence! New Nameful holds branches along other notable towns, being part of the United Cities and URO as well as the town spearheading the Nether Transit Coalition.</p>
       </div>
-      <div class="card" id="infoDistricts">
+      <div class="card" id="info-districts">
         <p>Districts</p>
         <hr>
         <p>The town is split into a district system, meaning different areas of the town may be managed by different players (and may have different rules, though this is rarely the case. Some noticeable districts include North Nameful, East Nameful, Nameful Bay, and Uptown Nameful.</p>
       </div>
-      <div class="card" id="infoLeadership">
+      <div class="card" id="info-leadership">
         <p>Leadership</p>
         <hr>
         <p>The town is run under a democratic structure of government, with bi-monthly elections to decide who leads the town. A rulership term is 2 months long, and a ruler is good to serve for at max 2 terms in a row before needing to take a mandatory off term. Political parties help group similarly minded individuals.</p>
       </div>
-      <div class="card" id="infoJoinToday">
+      <div class="card" id="info-join-today">
         <p>Join Today!</p>
         <hr>
         <p>New Nameful is FREE TO BUILD, meaning you do not need permission (save for specific districts). Just be respectful of other peoples builds and property. Take part of the community today!</p>
       </div>
-      <div class="card" id="infoAttachments">
+      <div class="card" id="info-attachments">
         <p>Images</p>
         <hr>
-        <img class="infoAttachment" src="assets/images/info/ss-25_05_2025-01-53-13.png" alt="">
-        <img class="infoAttachment" src="assets/images/info/ss-25_05_2025-01-53-25.png" alt="">
-        <img class="infoAttachment" src="assets/images/info/ss-25_05_2025-01-53-48.png" alt="">
-        <img class="infoAttachment" src="assets/images/info/ss-25_05_2025-01-53-58.png" alt="">
-        <img class="infoAttachment" src="assets/images/info/ss-25_05_2025-01-54-19.png" alt="">
+        <img class="info-attachment" src="/assets/images/info/screenshot-1.jpg" alt="">
+        <img class="info-attachment" src="/assets/images/info/screenshot-2.jpg" alt="">
+        <img class="info-attachment" src="/assets/images/info/screenshot-3.jpg" alt="">
+        <img class="info-attachment" src="/assets/images/info/screenshot-4.jpg" alt="">
+        <img class="info-attachment" src="/assets/images/info/screenshot-5.jpg" alt="">
+        <img class="info-attachment" src="/assets/images/info/screenshot-6.jpg" alt="">
+        <img class="info-attachment" src="/assets/images/info/screenshot-7.jpg" alt="">
+        <img class="info-attachment" src="/assets/images/info/screenshot-8.jpg" alt="">
       </div>
     </div>
-    <div class="section" id="election">
+    <div class="page" id="election">
       <p><b>Currently Elected Leaders</b></p>
-      <div class="card" style="height: 340px;width: 370px;">
-        <p>Ruler</p>
-        <hr>
-        <p id="ruler">Steve</p>
-        <img id="rulerAttachment" src="https://minotar.net/body/MHF_Steve/100.png" alt="Player Render">
-      </div>
-      <div class="card" style="height: 340px;width: 370px;">
-        <p>Co-Ruler</p>
-        <hr>
-        <p id="coRuler">Steve</p>
-        <img id="coRulerAttachment" src="https://minotar.net/body/MHF_Steve/100.png" alt="Player Render">
-      </div>
-      <br>
-      <p id="electionCountdown">Election Countdown</p>
     </div>
-    <div class="section" id="constitution">
+    <div class="page" id="constitution">
       <p><b>Constitution</b></p>
     </div>
-    <div class="section" id="members">
+    <div class="page" id="members">
       <p><b>Member List</b></p>
-      <div class="card" id="memberList" style="width: 370px;">
-        <p id="memberCount">Member Count: 0</p>
-        <hr>
-      </div>
     </div>
-    <div class="section" id="announcements">
-      <p><b>Announcements</b></p>
+    <div class="page" id="announcements">
+      <p><b>Recent Announcements</b></p>
     </div>
-    <div class="section" id="newnamefulnewsnotice">
+    <div class="page" id="newnamefulnewsnotice">
       <p><b>New Nameful News Nexus News Network News Notice Noticeboard News</b></p>
     </div>
-    <!-- <div class="section" id="history"> -->
+    <!-- <div class="page" id="history"> -->
     <!--   <p>History</p> -->
     <!-- </div> -->
     <div id="footer">
       <a href="https://git.lkarch.org/lkarch/newnameful.com">Source</a><br>
     </div>
-    <script src="assets/javascript/index.js"></script>
+    <script src="/assets/javascript/load-discord-messages.js"></script>
+    <script src="/assets/javascript/index.js"></script>
+    <script src="/assets/javascript/load-data.js"></script>
   </body>
 </html>
