@@ -40,7 +40,7 @@ async function electionLoad() {
   if (Math.ceil(calculateCountdown(election.electionDate)) <= 0) {
     countdown.innerText = "The next election is RIGHT NOW!!!";
   } else {
-    countdown.innerText = "The next election is in " + Math.ceil(calculateCountdown(election.electionDate)) + " days!";
+    countdown.innerText = "The next election starts in " + Math.ceil(calculateCountdown(election.electionDate)-7) + " days!";
   }
 
   console.log("Next election occurs in " + calculateCountdown(election.electionDate) + " days");
@@ -62,6 +62,7 @@ async function constitutionLoad() {
     window["title-" + constitutionSection].innerText = constitution.sections[constitutionSection].title
     window["preamble-" + constitutionSection].innerText = constitution.sections[constitutionSection].preamble
     window["amendments-" + constitutionSection].id = "amendments-" + constitutionSection
+    window["amendments-" + constitutionSection].style = "text-align: left;"
 
     createCard("constitution", constitutionSection, "")
 
