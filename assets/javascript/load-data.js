@@ -104,6 +104,7 @@ async function membersLoad() {
       window["memberSection-" + member + "-" + "memberSection"] = document.createElement("p")
 
       window["memberSection-" + member + "-" + "memberSection"].style = "float: left;"
+      window["memberSection-" + member + "-" + "memberSection"].className = "and" + memberList.members[member].colorCodes[memberSection].charAt(1)
       window["memberSection-" + member + "-" + "memberSection"].innerText = memberList.members[member].username[memberSection]
 
       document.getElementById("member-" + member).append(window["memberSection-" + member + "-" + "memberSection"])

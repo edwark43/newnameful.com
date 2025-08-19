@@ -49,7 +49,8 @@ body {
 
 .card {
   margin: auto;
-  border-left: 6px solid #eee;
+  border-left: 6px solid;
+  border-image: linear-gradient(to bottom, #ababab, #8a6cc4, #3b76c2) 1;
   background-color: #222;
   padding: 15px;
   margin-bottom: 20px;
@@ -138,4 +139,68 @@ body {
 .message-author-avatar {
   width: 64px;
   border-radius: 100%;
+}
+     
+.and0 {
+  color: #000000
+}
+
+.and1 {
+  color: #0000AA
+}
+
+.and2 {
+  color: #00AA00
+}
+
+.and3 {
+  color: #00AAAA
+}
+
+.and4 {
+  color: #AA0000
+}
+
+.and5 {
+  color: #AA00AA
+}
+
+.and6 {
+  color: #FFAA00
+}
+
+.and7 {
+  color: #AAAAAA
+}
+
+.and8 {
+  color: #555555
+}
+
+.and9 {
+  color: #5555FF;
+}
+
+.anda {
+  color: #55FF55;
+}
+
+.andb {
+  color: #55FFFF;
+}
+
+.andc {
+  color: #FF5555;
+}
+
+.andd {
+  color: #FF55FF;
+}
+
+.ande {
+  color: #FFFF55;
+}
+
+.andf {
+  color: #FFFFFF;
 }
