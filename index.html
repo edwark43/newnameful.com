@@ -13,12 +13,11 @@
   <body onload="onPageLoad()">
     <div id="navbar">
       <button class="nav-button" id="info-button" onclick="switchPage('info', this)">Info</button>
+      <button class="nav-button" id="leadership-button" onclick="switchPage('leadership', this)">Leadership</button>
       <button class="nav-button" id="election-button" onclick="switchPage('election', this)">Election</button>
       <button class="nav-button" id="constitution-button" onclick="switchPage('constitution', this)">Constitution</button>
       <button class="nav-button" id="members-button" onclick="switchPage('members', this)">Members</button>
-      <button class="nav-button" id="announcements-button" onclick="switchPage('announcements', this)">Announcements</button>
       <button class="nav-button" id="newnamefulnewsnotice-button" onclick="switchPage('newnamefulnewsnotice', this)">News</button>
-      <!-- <button class="nav-button" id="history-button" onclick="switchPage('history', this)">History</button> -->
       <button class="nav-button" id="discord-button" onclick="window.location.href = 'https://discord.newnameful.com'">Discord</button>
     </div>
     <div class="page" id="info">
@@ -59,8 +58,11 @@
         <img class="info-attachment" src="/assets/images/info/screenshot-8.jpg" alt="">
       </div>
     </div>
-    <div class="page" id="election">
+    <div class="page" id="leadership">
       <p><b>Currently Elected Leaders</b></p>
+    </div>
+    <div class="page" id="election">
+      <p><b>Election Info</b></p>
     </div>
     <div class="page" id="constitution">
       <p><b>Constitution</b></p>
@@ -68,15 +70,9 @@
     <div class="page" id="members">
       <p><b>Member List</b></p>
     </div>
-    <div class="page" id="announcements">
-      <p><b>Recent Announcements</b></p>
-    </div>
     <div class="page" id="newnamefulnewsnotice">
       <p><b>New Nameful News Nexus News Network News Notice Noticeboard News</b></p>
     </div>
-    <!-- <div class="page" id="history"> -->
-    <!--   <p>History</p> -->
-    <!-- </div> -->
     <div id="footer">
       <a href="https://git.lkarch.org/lkarch/newnameful.com">Source</a><br>
     </div>

@@ -1,8 +1,5 @@
 const cardIncrease = 10;
 
-var announcementsCardLimit;
-var announcementsCurrentIndex = 0;
-
 var newnamefulnewsnoticeCardLimit;
 var newnamefulnewsnoticeCurrentIndex = 0;
 
@@ -22,15 +19,15 @@ function createCardFromDiscordMessage(index, json, jsonName, addMessageContent, 
   let messageContainer = document.createElement("div");
   let messageAuthorAvatar = document.createElement("img");
   let messageTitle = document.createElement("p");
-  let messageDate = new Date(json.messages[index].timestamp);
+  let messageDate = new Date(json.newsNotice.messages[index].timestamp);
   let messageLine = document.createElement("hr");
 
   messageContainer.className = "card";
   messageContainer.id = jsonName + "-" + index;
   messageAuthorAvatar.className = "message-author-avatar";
-  messageAuthorAvatar.src = "/assets/json/" + jsonName + "/" + json.messages[index].author.avatarUrl;
+  messageAuthorAvatar.src = json.newsNotice.messages[index].author.avatarUrl;
   messageTitle.style = "margin-top: 5px;"
-  messageTitle.innerHTML = "<span style='color: " + json.messages[index].author.color + ";'>" + json.messages[index].author.nickname + "</span>" + " | " + messageDate.toLocaleDateString();
+  messageTitle.innerHTML = json.newsNotice.messages[index].author.nickname + " | " + messageDate.toLocaleDateString();
 
   document.getElementById(jsonName).append(messageContainer);
   document.getElementById(messageContainer.id).append(messageAuthorAvatar, messageTitle, messageLine);
@@ -38,23 +35,23 @@ function createCardFromDiscordMessage(index, json, jsonName, addMessageContent, 
   if (addMessageContent == true) {
     let messageContent = document.createElement("p");
 
-    messageContent.innerText = json.messages[index].content;
+    messageContent.innerText = json.newsNotice.messages[index].content;
 
     document.getElementById(messageContainer.id).append(messageContent);
   }
 
   if (addAttachments == true) {
     let messageAttachment;
-    for (let attachment = 0; attachment < json.messages[index].attachments.length; attachment++) {
+    for (let attachment = 0; attachment < json.newsNotice.messages[index].attachments.length; attachment++) {
       if (attachmentLinkOrEmbed === "link") {
         messageAttachment = document.createElement("a");
             
-        messageAttachment.href = "/assets/json/" + jsonName + json.messages[index].attachments[attachment].url;
-        messageAttachment.innerText = json.messages[index].attachments[attachment].fileName;
+        messageAttachment.href = json.newsNotice.messages[index].attachments[attachment].url;
+        messageAttachment.innerText = json.newsNotice.messages[index].attachments[attachment].fileName;
       } else if (attachmentLinkOrEmbed === "embed") {
         messageAttachment = document.createElement("img");
 
-        messageAttachment.src = "/assets/json/" + jsonName + "/" + json.messages[index].attachments[attachment].url;
+        messageAttachment.src = json.newsNotice.messages[index].attachments[attachment].url;
 
         document.getElementById(messageContainer.id).append(messageAttachment);
       }
@@ -66,11 +63,11 @@ function createCardFromDiscordMessage(index, json, jsonName, addMessageContent, 
 }
 
 async function addDiscordCards(cardIndex, jsonName, addMessageContent, addAttachments, attachmentLinkOrEmbed) {
-  const response = await fetch("/assets/json/" + jsonName + "/" + jsonName + ".json");  
+  const response = await fetch("/assets/json/data/data.json");  
   const jsonData = await response.json();
-  jsonData.messages.reverse();
+  jsonData.newsNotice.messages.reverse();
 
-  window[currentPage + "CardLimit"] = jsonData.messages.length;
+  window[currentPage + "CardLimit"] = jsonData.newsNotice.messages.length;
   window[currentPage + "CurrentIndex"]  =  cardIndex
   window[currentPage + "EndIndex"] = window[currentPage + "CurrentIndex"] == window[currentPage + "CardLimit"] ? window[currentPage + "CardLimit"] : window[currentPage + "CurrentIndex"] + cardIncrease;
 

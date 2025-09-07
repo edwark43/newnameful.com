@@ -131,6 +131,33 @@ body {
   width: 75%;
 }
 
+.candidate {
+  position: relative;
+  height: 50px;
+  border: 3px white;
+}
+
+.candidate-avatar {
+  height: 30px;
+  vertical-align: middle;
+  float: left;
+  margin: 10px !important;
+  border-radius: 100%;
+}
+
+.candidate-title {
+  line-height: 50px;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.candidate-voters {
+  position: absolute;
+  bottom: 3px;
+  right: 10px;
+}
+
+
 .message-attachment {
   padding: 10px;
   width: 75%;

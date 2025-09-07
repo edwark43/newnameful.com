@@ -86,10 +86,6 @@ function randomizeSplash() {
   document.getElementById("splash").innerHTML = randomSplash;
 }
 
-function announcementsLoad() {
-  addDiscordCards(window[currentPage + "CurrentIndex"], "announcements", true, true, "embed");
-}
-
 function newnamefulnewsnoticeLoad() {
   addDiscordCards(window[currentPage + "CurrentIndex"], "newnamefulnewsnotice", false, true, "embed");
   window.addEventListener("scroll", handleInfiniteScroll);
