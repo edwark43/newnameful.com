@@ -15,7 +15,7 @@ function createCard(page, index, style) {
 }
 
 async function leadershipLoad() {
-  const response = await fetch("/assets/json/data/data.json");  
+  const response = await fetch("https://newnameful.com/api/data");  
   const jsonData = await response.json();
 
   let leadership = jsonData.leadership
@@ -27,7 +27,7 @@ async function leadershipLoad() {
     
     window["position-" + govPosition].innerText = leadership.leaders[govPosition].title
     window["username-" + govPosition].innerText = leadership.leaders[govPosition].username
-    window["avatar-" + govPosition].src = "https://minotar.net/armor/body/" + leadership.leaders[govPosition].username + "/100.png"
+    window["avatar-" + govPosition].src = "https://newnameful.com/api/skin/" + leadership.leaders[govPosition].username
 
     createCard("leadership", govPosition, "height: 340px;width: 370px;")
 
@@ -39,7 +39,7 @@ async function leadershipLoad() {
 }
 
 async function electionLoad() {
-  const response = await fetch("/assets/json/data/data.json");  
+  const response = await fetch("https://newnameful.com/api/data");  
   const jsonData = await response.json();
 
   let election = jsonData.election;
@@ -152,7 +152,7 @@ async function electionLoad() {
 }
 
 async function constitutionLoad() {
-  const response = await fetch("/assets/json/data/data.json");  
+  const response = await fetch("https://newnameful.com/api/data");  
   const jsonData = await response.json();
 
   let constitution = jsonData.constitution
@@ -183,7 +183,7 @@ async function constitutionLoad() {
 }
 
 async function membersLoad() {
-  const response = await fetch("/assets/json/data/data.json");  
+  const response = await fetch("https://newnameful.com/api/data");  
   const jsonData = await response.json();
 
   let memberList = jsonData.memberList

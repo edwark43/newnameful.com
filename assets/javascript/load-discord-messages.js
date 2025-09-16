@@ -63,7 +63,7 @@ function createCardFromDiscordMessage(index, json, jsonName, addMessageContent, 
 }
 
 async function addDiscordCards(cardIndex, jsonName, addMessageContent, addAttachments, attachmentLinkOrEmbed) {
-  const response = await fetch("/assets/json/data/data.json");  
+  const response = await fetch("https://newnameful.com/api/data");  
   const jsonData = await response.json();
   jsonData.newsNotice.messages.reverse();
 

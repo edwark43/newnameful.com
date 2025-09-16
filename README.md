@@ -1,10 +1,8 @@
 # New Nameful Official Website 
 
-newnameful.com         - Main Website
+newnameful.com   - Main Website
 
-discord.newnameful.com - New Nameful Discord Redirect
-
-archive.newnameful.com - New Nameful Archive
+\*.newnameful.com - Main Website
 
 # Credits
 

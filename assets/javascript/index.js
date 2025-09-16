@@ -102,4 +102,9 @@ function onPageLoad() {
     console.log("Page cookie found, restoring page to \"" + getCookie("page") + "\"");
     document.getElementById(getCookie("page") + "-button").click();
   }
+  if (window.navigator["userAgentData"]["platform"] == "Android" || window.navigator["userAgentData"]["platform"] == "iOS") {
+    document.getElementById("navbar").style.display = "none"
+    document.getElementById("leadership").style.padding = "10px 20px 20px"
+    document.getElementById("leadership-button").click();
+  }
 }
