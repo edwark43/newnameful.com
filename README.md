@@ -1,6 +1,6 @@
 # New Nameful Official Website 
 
-newnameful.com   - Main Website
+newnameful.com - Main Website
 
 \*.newnameful.com - Main Website
 
