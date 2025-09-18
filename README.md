@@ -8,4 +8,4 @@ dev.newnameful.com - No Cache Main Website
 
 Minecraft Font: https://fontlibrary.org/en/font/minecraftia
 
-New Nameful Logo: made by cool_tellow
+New Nameful Logo: @cooltellow DC
