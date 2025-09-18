@@ -10,7 +10,7 @@ function createCard(page, index, style) {
   cardTitle.id = page + "Title-" + index;
   cardContent.id = page + "Content-" + index;
 
-  document.getElementById(page).append(card);
+  document.getElementById(page.replace("-", "")).append(card);
   document.getElementById(card.id).append(cardTitle, cardLine, cardContent);
 }
 
@@ -27,7 +27,7 @@ async function leadershipLoad() {
     
     window["position-" + govPosition].innerText = leadership.leaders[govPosition].title
     window["username-" + govPosition].innerText = leadership.leaders[govPosition].username
-    window["avatar-" + govPosition].src = "https://newnameful.com/api/skin/" + leadership.leaders[govPosition].username
+    window["avatar-" + govPosition].src = "https://newnameful.com/api/skin/armor/body/" + leadership.leaders[govPosition].username
 
     createCard("leadership", govPosition, "height: 340px;width: 370px;")
 
@@ -38,7 +38,7 @@ async function leadershipLoad() {
 
 }
 
-async function electionLoad() {
+async function electionsLoad() {
   const response = await fetch("https://newnameful.com/api/data");  
   const jsonData = await response.json();
 
@@ -64,9 +64,8 @@ async function electionLoad() {
   //   activeElectionTitle.innerText = election.activeElection.question + " | " + election.activeElection.date
   //   window["candidates-0"].id = "candidates-0"
   //
-  //   document.getElementById("election").append(countdown);
-  //   document.getElementById("election").append(activeElection);
-  //   createCard("election", 0, "")
+  //   document.getElementById("elections").append(activeElection);
+  //   createCard("elections", 0, "")
   //   document.getElementById("electionTitle-0").append(activeElectionTitle);
   //   document.getElementById("electionContent-0").append(window["candidates-0"]);
   //
@@ -91,10 +90,11 @@ async function electionLoad() {
   //   }
   // } else {
   //   activeElection.innerText = "No Currently Active Election"
-  //   document.getElementById("election").append(activeElection);
+  //   document.getElementById("elections").append(activeElection);
   // }
 
-  document.getElementById("election").append(pastElections);
+  document.getElementById("elections").append(countdown);
+  document.getElementById("elections").append(pastElections);
   
   election.pastElections.reverse();
 
@@ -107,10 +107,10 @@ async function electionLoad() {
     window["candidates-" + String(pastElection + 1)].id = "candidates-" + String(pastElection + 1)
     window["winnerLabel-" + pastElection].innerText = "Winner:"
 
-    createCard("election", pastElection+1, "")
+    createCard("elections", pastElection+1, "")
 
-    document.getElementById("electionTitle-" + String(pastElection + 1)).append(window["pastElectionTitle-" + pastElection]);
-    document.getElementById("electionContent-" + String(pastElection + 1)).append(window["candidates-" + String(pastElection + 1)], window["winnerLabel-" + pastElection]);
+    document.getElementById("electionsTitle-" + String(pastElection + 1)).append(window["pastElectionTitle-" + pastElection]);
+    document.getElementById("electionsContent-" + String(pastElection + 1)).append(window["candidates-" + String(pastElection + 1)], window["winnerLabel-" + pastElection]);
 
     for (let candidate = 0; candidate < election.pastElections[pastElection].candidates.length; candidate++) {
       window["candidates-" + String(pastElection + 1) + "-" + candidate] = document.createElement("div")
@@ -146,7 +146,7 @@ async function electionLoad() {
     window["winnerCandidate-" + pastElection + "-voters"].innerText = election.pastElections[pastElection].winner.voters + (election.pastElections[pastElection].winner.voters == "1" ? ' vote ' :' votes ') + Math.round(election.pastElections[pastElection].winner.percentage) + "%"
     window["winnerCandidate-" + pastElection + "-voters"].className = "candidate-voters"
 
-    document.getElementById("electionContent-" + String(pastElection + 1)).append(window["winnerCandidate-" + pastElection]);
+    document.getElementById("electionsContent-" + String(pastElection + 1)).append(window["winnerCandidate-" + pastElection]);
     document.getElementById(window["winnerCandidate-" + pastElection].id).append(window["winnerCandidate-" + pastElection + "-avatar"], window["winnerCandidate-" + pastElection + "-title"], window["winnerCandidate-" + pastElection + "-voters"]);
   }
 }
@@ -182,26 +182,26 @@ async function constitutionLoad() {
   }
 }
 
-async function membersLoad() {
+async function memberlistLoad() {
   const response = await fetch("https://newnameful.com/api/data");  
   const jsonData = await response.json();
 
   let memberList = jsonData.memberList
   let memberCount = document.createElement("p")
 
-  memberCount.innerText = memberList.title + memberList.members.length
+  memberCount.innerText = "Member Count: " + memberList.members.length
 
-  createCard("members", 0, "width: 370px;")
+  createCard("memberlist", 0, "width: 370px;")
 
-  document.getElementById("membersTitle-0").append(memberCount)
+  document.getElementById("memberlistTitle-0").append(memberCount)
 
   for (let member = 0; member < memberList.members.length; member++) {
     window["member-" + member] = document.createElement("div")
-
+    
     window["member-" + member].id = "member-" + member
     window["member-" + member].style = "width: fit-content; margin: auto;"
 
-    document.getElementById("membersContent-0").append(window["member-" + member])
+    document.getElementById("memberlistContent-0").append(window["member-" + member])
 
     for (let memberSection = 0; memberSection < memberList.members[member].username.length; memberSection++) {
       window["memberSection-" + member + "-" + "memberSection"] = document.createElement("p")

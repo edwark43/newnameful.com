@@ -1,7 +1,7 @@
 const cardIncrease = 10;
 
-var newnamefulnewsnoticeCardLimit;
-var newnamefulnewsnoticeCurrentIndex = 0;
+var newsnoticeCardLimit;
+var newsnoticeCurrentIndex = 0;
 
 var throttleTimer;
 
@@ -83,9 +83,9 @@ function handleInfiniteScroll() {
   throttle(() => {
     const endOfPage = Math.ceil(window.innerHeight + window.pageYOffset + 10) >= document.body.offsetHeight;
     console.log(endOfPage)
-    if (endOfPage && currentPage === "newnamefulnewsnotice") {
+    if (endOfPage && currentPage === "newsnotice") {
       console.log("Adding cards")
-      addDiscordCards(window[currentPage + "CurrentIndex"] + cardIncrease, "newnamefulnewsnotice", false, true, "embed")
+      addDiscordCards(window[currentPage + "CurrentIndex"] + cardIncrease, "newsnotice", false, true, "embed")
     }
     if (window[currentPage + "CurrentIndex"] + cardIncrease === window[currentPage + "CardLimit"]) {
       console.log("Removing Handler")

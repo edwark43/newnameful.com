@@ -1,11 +1,14 @@
-@media only screen and (max-width: 1254px) {
+@media only screen and (max-width: 1300px) {
   #footer {
+    display: none;
+  }
+  #splash {
     display: none;
   }
 }
 
-@media only screen and (max-width: 580px) {
-  #splash {
+@media only screen and (max-width: 750px) {
+  .candidate-title {
     display: none;
   }
 }
@@ -68,9 +71,13 @@ body {
   margin: auto;
 }
 
+#new-nameful-logo {
+  width: 68vw;
+}
+
 #splash {
     color: #FFFF00;
-    font-size: 1.5em;
+    font-size: 2vw;
     text-shadow: 3px 3px #3F3F00;
     padding-top: 40px;
     position: relative;

@@ -1,4 +1,5 @@
 const url = new URL(window.location.toLocaleString());
+const pages = ["info", "leadership", "elections", "constitution", "memberlist", "newsnotice"]
 
 const pageList = document.getElementsByClassName("page");
 const loaded = [];
@@ -46,7 +47,7 @@ function randomizeUser() {
 }
 
 
-function switchPage(pageName, button) {
+function switchPage(pageName, button, pushState) {
   currentPage = pageName;
 
   for (let page = 0; page < pageList.length; page++) {
@@ -58,8 +59,12 @@ function switchPage(pageName, button) {
     navButtons[navButton].style.backgroundColor = "black";
     navButtons[navButton].style.color = "white";
   }
+
+  if (pushState == true) {
+    history.pushState(null, "", "/" + currentPage)
+  }
   
-  document.title = button.innerText;
+  document.title = "NN " + button.innerText;
   document.cookie = "page=" + pageName;
 
   document.getElementById(pageName).style.display = "block";
@@ -70,7 +75,7 @@ function switchPage(pageName, button) {
   for (let page = 0; page <= loaded.length; page++) {
     if (! loaded.includes(pageName)) {
       loaded.push(pageName);
-      window[pageName + "Load"]();
+      window[pageName.replace("-", "") + "Load"]();
     }
   }
 }
@@ -86,25 +91,28 @@ function randomizeSplash() {
   document.getElementById("splash").innerHTML = randomSplash;
 }
 
-function newnamefulnewsnoticeLoad() {
-  addDiscordCards(window[currentPage + "CurrentIndex"], "newnamefulnewsnotice", false, true, "embed");
+function newsnoticeLoad() {
+  addDiscordCards(window[currentPage + "CurrentIndex"], "newsnotice", false, true, "embed");
   window.addEventListener("scroll", handleInfiniteScroll);
 }
 
 function onPageLoad() {
-  if (url.searchParams.has("page")) {
-    console.log("URL parameter found, forcing page to \"" + url.searchParams.get("page") + "\"");
-    document.getElementById(url.searchParams.get("page") + "-button").click();
+  if (pages.includes(window.location.href.split("/")[3].replace("-", ""))) {
+    document.getElementById(window.location.href.split("/")[3].replace("-", "") + "-button").click();
   } else if (getCookie("page") === "") {
-    console.log("A wild user appears! Defaulting to first page, \"" + pageList[0].id + "\"");
     document.getElementById(pageList[0].id + "-button").click();
   } else {
-    console.log("Page cookie found, restoring page to \"" + getCookie("page") + "\"");
     document.getElementById(getCookie("page") + "-button").click();
   }
-  if (window.navigator["userAgentData"]["platform"] == "Android" || window.navigator["userAgentData"]["platform"] == "iOS") {
-    document.getElementById("navbar").style.display = "none"
-    document.getElementById("leadership").style.padding = "10px 20px 20px"
-    document.getElementById("leadership-button").click();
-  }
+  // if (window.navigator["userAgentData"]["platform"] == "Android" || window.navigator["userAgentData"]["platform"] == "iOS") {
+  //   document.getElementById("navbar").style.display = "none"
+  //   document.getElementById("leadership").style.padding = "10px 20px 20px"
+  //   document.getElementById("leadership-button").click();
+  // }
 }
+
+window.addEventListener("popstate", function (event){
+  if (pages.includes(window.location.href.split("/")[3].replace("-", ""))) {
+    switchPage(window.location.href.split("/")[3].replace("-", ""), document.getElementById(window.location.href.split("/")[3].replace("-", "") + "-button"), false)
+  }
+});

@@ -2,7 +2,7 @@
 
 newnameful.com - Main Website
 
-\*.newnameful.com - Main Website
+dev.newnameful.com - No Cache Main Website
 
 # Credits
 

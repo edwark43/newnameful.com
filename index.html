@@ -4,24 +4,24 @@
     <title>New Nameful</title>
     <meta charset="UTF-8" />
     <meta name="description" content="Tellow approves!!!!!" />
-    <meta name="keywords" content="new nameful, minecraft, election, beta minecraft, b1.7.3, town" />
+    <meta name="keywords" content="new nameful, minecraft, elections, beta minecraft, b1.7.3, town" />
     <meta author="lkarch" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/stylesheets/index.css" />
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   </head>
   <body onload="onPageLoad()">
     <div id="navbar">
-      <button class="nav-button" id="info-button" onclick="switchPage('info', this)">Info</button>
-      <button class="nav-button" id="leadership-button" onclick="switchPage('leadership', this)">Leadership</button>
-      <button class="nav-button" id="election-button" onclick="switchPage('election', this)">Election</button>
-      <button class="nav-button" id="constitution-button" onclick="switchPage('constitution', this)">Constitution</button>
-      <button class="nav-button" id="members-button" onclick="switchPage('members', this)">Members</button>
-      <button class="nav-button" id="newnamefulnewsnotice-button" onclick="switchPage('newnamefulnewsnotice', this)">News</button>
+      <button class="nav-button" id="info-button" onclick="switchPage('info', this, true)">Info</button>
+      <button class="nav-button" id="leadership-button" onclick="switchPage('leadership', this, true)">Leadership</button>
+      <button class="nav-button" id="elections-button" onclick="switchPage('elections', this, true)">Elections</button>
+      <button class="nav-button" id="constitution-button" onclick="switchPage('constitution', this, true)">Constitution</button>
+      <button class="nav-button" id="memberlist-button" onclick="switchPage('memberlist', this, true)">Member List</button>
+      <button class="nav-button" id="newsnotice-button" onclick="switchPage('newsnotice', this, true)">News Notice</button>
       <button class="nav-button" id="discord-button" onclick="window.location.href = 'https://newnameful.com/discord/'">Discord</button>
     </div>
     <div class="page" id="info">
-      <img src="/assets/images/info/new-nameful-logo.png" alt="">
+      <img id="new-nameful-logo"src="/assets/images/info/new-nameful-logo.png" alt="">
       <div class="tilt">
         <div id="splash" class="pop"></div>
       </div>
@@ -61,16 +61,16 @@
     <div class="page" id="leadership">
       <p><b>Currently Elected Leaders</b></p>
     </div>
-    <div class="page" id="election">
-      <p><b>Election Info</b></p>
+    <div class="page" id="elections">
+      <p><b>Elections Info</b></p>
     </div>
     <div class="page" id="constitution">
       <p><b>Constitution</b></p>
     </div>
-    <div class="page" id="members">
+    <div class="page" id="memberlist">
       <p><b>Member List</b></p>
     </div>
-    <div class="page" id="newnamefulnewsnotice">
+    <div class="page" id="newsnotice">
       <p><b>New Nameful News Nexus News Network News Notice Noticeboard News</b></p>
     </div>
     <div id="footer">
