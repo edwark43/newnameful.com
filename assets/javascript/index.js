@@ -86,7 +86,6 @@ function infoLoad() {
 
 function randomizeSplash() {
   let randomSplash = splashes[Math.floor(Math.random() * splashes.length)];
-  console.log("Splash randomized to \"" + randomSplash +"\"");
 
   document.getElementById("splash").innerHTML = randomSplash;
 }

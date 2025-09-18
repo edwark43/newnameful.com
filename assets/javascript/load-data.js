@@ -61,7 +61,7 @@ async function electionsLoad() {
   //   let activeElectionTitle = document.createElement("p")
   //
   //   activeElection.innerText = "Active Election"
-  //   activeElectionTitle.innerText = election.activeElection.question + " | " + election.activeElection.date
+  //   activeElectionTitle.innerText = election.activeElection.question + " (" + election.activeElection.date + ")"
   //   window["candidates-0"].id = "candidates-0"
   //
   //   document.getElementById("elections").append(activeElection);
@@ -103,7 +103,7 @@ async function electionsLoad() {
     window["candidates-" + String(pastElection + 1)] = document.createElement("div")
     window["winnerLabel-" + pastElection] = document.createElement("p")
 
-    window["pastElectionTitle-" + pastElection].innerText = election.pastElections[pastElection].question + " | " + election.pastElections[pastElection].date
+    window["pastElectionTitle-" + pastElection].innerText = election.pastElections[pastElection].question + " (" + election.pastElections[pastElection].date + ")"
     window["candidates-" + String(pastElection + 1)].id = "candidates-" + String(pastElection + 1)
     window["winnerLabel-" + pastElection].innerText = "Winner:"
 

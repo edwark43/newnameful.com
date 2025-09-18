@@ -17,6 +17,7 @@ const throttle = (callback, time) => {
 
 function createCardFromDiscordMessage(index, json, jsonName, addMessageContent, addAttachments, attachmentLinkOrEmbed) {
   let messageContainer = document.createElement("div");
+  let messageAuthorContainer = document.createElement("div");
   let messageAuthorAvatar = document.createElement("img");
   let messageTitle = document.createElement("p");
   let messageDate = new Date(json.newsNotice.messages[index].timestamp);
@@ -24,13 +25,16 @@ function createCardFromDiscordMessage(index, json, jsonName, addMessageContent, 
 
   messageContainer.className = "card";
   messageContainer.id = jsonName + "-" + index;
+  messageAuthorContainer.id = jsonName + "-" + index + "-author";
+  messageAuthorContainer.className = "message-author";
   messageAuthorAvatar.className = "message-author-avatar";
   messageAuthorAvatar.src = json.newsNotice.messages[index].author.avatarUrl;
-  messageTitle.style = "margin-top: 5px;"
-  messageTitle.innerHTML = json.newsNotice.messages[index].author.nickname + " | " + messageDate.toLocaleDateString();
+  messageTitle.className = "message-title"
+  messageTitle.innerHTML = json.newsNotice.messages[index].author.nickname + " (" + messageDate.toLocaleDateString() + ")";
 
   document.getElementById(jsonName).append(messageContainer);
-  document.getElementById(messageContainer.id).append(messageAuthorAvatar, messageTitle, messageLine);
+  document.getElementById(messageContainer.id).append(messageAuthorContainer, messageLine);
+  document.getElementById(messageAuthorContainer.id).append(messageAuthorAvatar, messageTitle)
 
   if (addMessageContent == true) {
     let messageContent = document.createElement("p");
@@ -74,21 +78,16 @@ async function addDiscordCards(cardIndex, jsonName, addMessageContent, addAttach
 
   for (let i = window[currentPage + "CurrentIndex"]; i < window[currentPage + "EndIndex"]; i++) {
     createCardFromDiscordMessage(i, jsonData, jsonName, addMessageContent, addAttachments, attachmentLinkOrEmbed);
-    console.log("Added card " + i)
   }
-  console.log(window[currentPage + "CurrentIndex"] + " " + window[currentPage + "CardLimit"]);
 };
 
 function handleInfiniteScroll() {
   throttle(() => {
     const endOfPage = Math.ceil(window.innerHeight + window.pageYOffset + 10) >= document.body.offsetHeight;
-    console.log(endOfPage)
     if (endOfPage && currentPage === "newsnotice") {
-      console.log("Adding cards")
       addDiscordCards(window[currentPage + "CurrentIndex"] + cardIncrease, "newsnotice", false, true, "embed")
     }
     if (window[currentPage + "CurrentIndex"] + cardIncrease === window[currentPage + "CardLimit"]) {
-      console.log("Removing Handler")
       removeInfiniteScroll(handleInfiniteScroll);
     }
   }, 1500);
@@ -96,5 +95,4 @@ function handleInfiniteScroll() {
 
 function removeInfiniteScroll(name) {
   window.removeEventListener("scroll", name);
-  console.log("removed " + name)
 }
