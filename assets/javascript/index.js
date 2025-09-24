@@ -91,7 +91,7 @@ function randomizeSplash() {
 }
 
 function newsnoticeLoad() {
-  addDiscordCards(window[currentPage + "CurrentIndex"], "newsnotice", false, true, "embed");
+  addNewsCards(currentIndex);
   window.addEventListener("scroll", handleInfiniteScroll);
 }
 
@@ -103,11 +103,6 @@ function onPageLoad() {
   } else {
     document.getElementById(getCookie("page") + "-button").click();
   }
-  // if (window.navigator["userAgentData"]["platform"] == "Android" || window.navigator["userAgentData"]["platform"] == "iOS") {
-  //   document.getElementById("navbar").style.display = "none"
-  //   document.getElementById("leadership").style.padding = "10px 20px 20px"
-  //   document.getElementById("leadership-button").click();
-  // }
 }
 
 window.addEventListener("popstate", function (event){

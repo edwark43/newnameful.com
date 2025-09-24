@@ -1,7 +1,7 @@
 const cardIncrease = 10;
 
-var newsnoticeCardLimit;
-var newsnoticeCurrentIndex = 0;
+var cardLimit;
+var currentIndex = 0;
 
 var throttleTimer;
 
@@ -15,7 +15,7 @@ const throttle = (callback, time) => {
   }, time);
 };
 
-function createCardFromDiscordMessage(index, json, jsonName, addMessageContent, addAttachments, attachmentLinkOrEmbed) {
+function createNewsCard(index, json) {
   let messageContainer = document.createElement("div");
   let messageAuthorContainer = document.createElement("div");
   let messageAuthorAvatar = document.createElement("img");
@@ -23,61 +23,41 @@ function createCardFromDiscordMessage(index, json, jsonName, addMessageContent, 
   let messageDate = new Date(json.newsNotice.messages[index].timestamp);
   let messageLine = document.createElement("hr");
 
+
   messageContainer.className = "card";
-  messageContainer.id = jsonName + "-" + index;
-  messageAuthorContainer.id = jsonName + "-" + index + "-author";
   messageAuthorContainer.className = "message-author";
   messageAuthorAvatar.className = "message-author-avatar";
   messageAuthorAvatar.src = json.newsNotice.messages[index].author.avatarUrl;
   messageTitle.className = "message-title"
   messageTitle.innerHTML = json.newsNotice.messages[index].author.nickname + " (" + messageDate.toLocaleDateString() + ")";
 
-  document.getElementById(jsonName).append(messageContainer);
-  document.getElementById(messageContainer.id).append(messageAuthorContainer, messageLine);
-  document.getElementById(messageAuthorContainer.id).append(messageAuthorAvatar, messageTitle)
+  messageAuthorContainer.append(messageAuthorAvatar, messageTitle)
+  messageContainer.append(messageAuthorContainer, messageLine);
 
-  if (addMessageContent == true) {
-    let messageContent = document.createElement("p");
+  for (let attachment = 0; attachment < json.newsNotice.messages[index].attachments.length; attachment++) {
+    let messageAttachment = document.createElement("img");
 
-    messageContent.innerText = json.newsNotice.messages[index].content;
+    messageAttachment.src = json.newsNotice.messages[index].attachments[attachment].url;
+    messageAttachment.className = "message-attachment";
 
-    document.getElementById(messageContainer.id).append(messageContent);
+    messageContainer.append(messageAttachment);
   }
 
-  if (addAttachments == true) {
-    let messageAttachment;
-    for (let attachment = 0; attachment < json.newsNotice.messages[index].attachments.length; attachment++) {
-      if (attachmentLinkOrEmbed === "link") {
-        messageAttachment = document.createElement("a");
-            
-        messageAttachment.href = json.newsNotice.messages[index].attachments[attachment].url;
-        messageAttachment.innerText = json.newsNotice.messages[index].attachments[attachment].fileName;
-      } else if (attachmentLinkOrEmbed === "embed") {
-        messageAttachment = document.createElement("img");
-
-        messageAttachment.src = json.newsNotice.messages[index].attachments[attachment].url;
-
-        document.getElementById(messageContainer.id).append(messageAttachment);
-      }
-      messageAttachment.className = "message-attachment";
-
-      document.getElementById(messageContainer.id).append(messageAttachment);
-    }
-  }
+  document.getElementById("newsnotice").append(messageContainer);
 }
 
-async function addDiscordCards(cardIndex, jsonName, addMessageContent, addAttachments, attachmentLinkOrEmbed) {
+async function addNewsCards(cardIndex) {
   const response = await fetch("https://newnameful.com/api/data");  
-  const jsonData = await response.json();
-  jsonData.newsNotice.messages.reverse();
+  const json = await response.json();
+  json.newsNotice.messages.reverse();
 
-  window[currentPage + "CardLimit"] = jsonData.newsNotice.messages.length;
-  window[currentPage + "CurrentIndex"]  =  cardIndex
-  window[currentPage + "EndIndex"] = window[currentPage + "CurrentIndex"] == window[currentPage + "CardLimit"] ? window[currentPage + "CardLimit"] : window[currentPage + "CurrentIndex"] + cardIncrease;
+  cardLimit = json.newsNotice.messages.length;
+  currentIndex  =  cardIndex
+  endIndex = currentIndex == cardLimit ? cardLimit : currentIndex + cardIncrease;
 
 
-  for (let i = window[currentPage + "CurrentIndex"]; i < window[currentPage + "EndIndex"]; i++) {
-    createCardFromDiscordMessage(i, jsonData, jsonName, addMessageContent, addAttachments, attachmentLinkOrEmbed);
+  for (let i = currentIndex; i < endIndex; i++) {
+    createNewsCard(i, json);
   }
 };
 
@@ -85,9 +65,9 @@ function handleInfiniteScroll() {
   throttle(() => {
     const endOfPage = Math.ceil(window.innerHeight + window.pageYOffset + 10) >= document.body.offsetHeight;
     if (endOfPage && currentPage === "newsnotice") {
-      addDiscordCards(window[currentPage + "CurrentIndex"] + cardIncrease, "newsnotice", false, true, "embed")
+      addNewsCards(currentIndex + cardIncrease, "newsnotice")
     }
-    if (window[currentPage + "CurrentIndex"] + cardIncrease === window[currentPage + "CardLimit"]) {
+    if (currentIndex + cardIncrease === cardLimit) {
       removeInfiniteScroll(handleInfiniteScroll);
     }
   }, 1500);

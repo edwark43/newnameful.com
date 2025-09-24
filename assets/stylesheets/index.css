@@ -138,6 +138,11 @@ body {
   width: 75%;
 }
 
+.leader {
+  height: 340px;
+  width: 370px;
+}
+
 .candidate {
   position: relative;
   height: 50px;
@@ -180,6 +185,23 @@ body {
 .message-attachment {
   padding: 10px;
   width: 75%;
+}
+
+.amendments {
+  text-align: left;
+}
+
+.member-list {
+  width: 370px;
+}
+
+.member {
+  width: fit-content;
+  margin: auto;
+}
+
+.member-section {
+  float: left;
 }
      
 .and0 {
