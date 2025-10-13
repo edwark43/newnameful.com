@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="/assets/stylesheets/index.css" />
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   </head>
-  <body onload="onPageLoad()">
+  <body onload="init()">
     <div id="navbar">
-      <button class="nav-button" id="info-button" onclick="switchPage('info', this, true)">Info</button>
-      <button class="nav-button" id="leadership-button" onclick="switchPage('leadership', this, true)">Leadership</button>
-      <button class="nav-button" id="elections-button" onclick="switchPage('elections', this, true)">Elections</button>
-      <button class="nav-button" id="constitution-button" onclick="switchPage('constitution', this, true)">Constitution</button>
-      <button class="nav-button" id="memberlist-button" onclick="switchPage('memberlist', this, true)">Member List</button>
-      <button class="nav-button" id="newsnotice-button" onclick="switchPage('newsnotice', this, true)">News Notice</button>
+      <button class="nav-button" id="info-button" onclick="switch_page('info', this, true)">Info</button>
+      <button class="nav-button" id="leadership-button" onclick="switch_page('leadership', this, true)">Leadership</button>
+      <button class="nav-button" id="elections-button" onclick="switch_page('elections', this, true)">Elections</button>
+      <button class="nav-button" id="constitution-button" onclick="switch_page('constitution', this, true)">Constitution</button>
+      <button class="nav-button" id="memberlist-button" onclick="switch_page('memberlist', this, true)">Member List</button>
+      <button class="nav-button" id="newsnotice-button" onclick="switch_page('newsnotice', this, true)">News Notice</button>
       <button class="nav-button" id="discord-button" onclick="window.location.href = 'https://newnameful.com/discord/'">Discord</button>
     </div>
     <div class="page" id="info">
@@ -60,24 +60,30 @@
     </div>
     <div class="page" id="leadership">
       <p><b>Currently Elected Leaders</b></p>
+      <span class="loader"></span>
     </div>
     <div class="page" id="elections">
       <p><b>Elections Info</b></p>
+      <span class="loader"></span>
     </div>
     <div class="page" id="constitution">
       <p><b>Constitution</b></p>
+      <span class="loader"></span>
     </div>
     <div class="page" id="memberlist">
       <p><b>Member List</b></p>
+      <span class="loader"></span>
     </div>
     <div class="page" id="newsnotice">
       <p><b>New Nameful News Nexus News Network News Notice Noticeboard News</b></p>
+      <span class="loader"></span>
     </div>
     <div id="footer">
       <a href="https://git.lkarch.org/lkarch/newnameful.com">Source</a><br>
     </div>
+    <script src="/assets/javascript/utils.js"></script>
     <script src="/assets/javascript/load-discord-messages.js"></script>
-    <script src="/assets/javascript/index.js"></script>
     <script src="/assets/javascript/load-data.js"></script>
+    <script src="/assets/javascript/index.js"></script>
   </body>
 </html>

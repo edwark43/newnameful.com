@@ -30,6 +30,21 @@
     }
 }
 
+@keyframes pulse {
+    from {
+        transform:scale(1);
+        box-shadow:0 0 5px rgba(40, 167, 69, 0.6), 0 0 15px rgba(40, 167, 69, 0.4);
+    }
+    50% {
+        transform:scale(1.1);
+        box-shadow: 0 0 10px rgba(40, 167, 69, 0.8), 0 0 20px rgba(40, 167, 69, 0.6);
+    }
+    to {
+        transform:scale(1);
+        box-shadow: 0 0 5px rgba(40, 167, 69, 0.6), 0 0 15px rgba(40, 167, 69, 0.4);
+    }
+}
+
 * {
   box-sizing: border-box;
   font-family: 'Minecraftia';
@@ -139,8 +154,27 @@ body {
 }
 
 .leader {
-  height: 340px;
+  height: 330px;
   width: 370px;
+  position: relative;
+}
+
+.leader-name {
+  width: fit-content;
+  margin: auto;
+}
+
+.leader-section {
+  float: left;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.leader-render {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 20px;
 }
 
 .candidate {
@@ -187,6 +221,27 @@ body {
   width: 75%;
 }
 
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #ababab;
+  border-bottom-color: #8a6cc4;
+  border-left-color: #3b76c2;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+0% {
+  transform: rotate(0deg);
+  }
+100% {
+  transform: rotate(360deg);
+  }
+} 
+
 .amendments {
   text-align: left;
 }
@@ -197,11 +252,21 @@ body {
 
 .member {
   width: fit-content;
-  margin: auto;
+  height: fit-content;
+  margin: 20px auto;
+}
+
+.online-icon {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  margin: 0px 7px 3px 0px;
+  display: inline-block;
+  animation: pulse 3s infinite;
 }
 
 .member-section {
-  float: left;
+  display: inline;
 }
      
 .and0 {
