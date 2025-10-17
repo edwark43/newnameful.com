@@ -17,7 +17,7 @@ function query_ele(query) {
 }
 
 function get_page() {
-  return URL.parse(window.location.toLocaleString()).pathname.substr(1)
+  return window.location.pathname.substr(1)
 }
 
 function calculate_countdown(endingDate) {
@@ -55,7 +55,7 @@ function parse_member(nickname) {
 }
 
 async function fetch_member(member) {
-  const response = await fetch("https://newnameful.com/api/player/" + member + "/nickname");  
+  const response = await fetch("/api/player/" + member + "/nickname");  
   const jsonData = await response.json();
 
   return parse_member(jsonData)
@@ -63,15 +63,19 @@ async function fetch_member(member) {
 
 
 async function get_online() {
-  const response = await fetch("https://newnameful.com/api/online/");  
-  const jsonData = await response.json();
-  var online = [];
+  try {
+    const response = await fetch("/api/online/");  
+    const jsonData = await response.json();
+    var online = [];
 
-  for (let i = 0; i < jsonData.length; i++) {
-    online.push(jsonData[i].username.toLowerCase());
+    for (let i = 0; i < jsonData.length; i++) {
+      online.push(jsonData[i].username.toLowerCase());
+    }
+
+    return online
+  } catch (error) {
+    console.error(error)
   }
-
-  return online
 }
 
 const throttle = (callback, time) => {

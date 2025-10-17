@@ -46,8 +46,8 @@ function switch_page(pageName, button, pushState) {
 }
 
 function init() {
-  if (pages.includes(window.location.href.split("/")[3].replace("-", ""))) {
-    query_ele("#" + window.location.href.split("/")[3].replace("-", "") + "-button").click();
+  if (pages.includes(window.location.pathname.substr(1).replace("-", ""))) {
+    query_ele("#" + window.location.pathname.substr(1).replace("-", "") + "-button").click();
   } else if (get_cookie("page") === "") {
     query_ele("#" + query_ele(".page").id + "-button").click();
   } else {
@@ -56,7 +56,7 @@ function init() {
 }
 
 window.addEventListener("popstate", function (event){
-  if (pages.includes(window.location.href.split("/")[3].replace("-", ""))) {
-    switch_page(window.location.href.split("/")[3].replace("-", ""), query_ele("#" + window.location.href.split("/")[3].replace("-", "") + "-button"), false);
+  if (pages.includes(window.location.pathname.substr(1).replace("-", ""))) {
+    switch_page(window.location.pathname.substr(1).replace("-", ""), query_ele("#" + window.location.pathname.substr(1).replace("-", "") + "-button"), false);
   }
 });

@@ -18,13 +18,10 @@
       <button class="nav-button" id="constitution-button" onclick="switch_page('constitution', this, true)">Constitution</button>
       <button class="nav-button" id="memberlist-button" onclick="switch_page('memberlist', this, true)">Member List</button>
       <button class="nav-button" id="newsnotice-button" onclick="switch_page('newsnotice', this, true)">News Notice</button>
-      <button class="nav-button" id="discord-button" onclick="window.location.href = 'https://newnameful.com/discord/'">Discord</button>
+      <button class="nav-button" id="discord-button" onclick="window.location.pathname = '/discord'">Discord</button>
     </div>
     <div class="page" id="info">
       <img id="new-nameful-logo"src="/assets/images/info/new-nameful-logo.png" alt="">
-      <div class="tilt">
-        <div id="splash" class="pop"></div>
-      </div>
       <div class="card" id="info-introduction">
         <p>Introduction</p>
         <hr>
@@ -78,11 +75,13 @@
       <p><b>New Nameful News Nexus News Network News Notice Noticeboard News</b></p>
       <span class="loader"></span>
     </div>
-    <div id="footer">
+    <div id="footer" style="left: 10px;">
       <a href="https://git.lkarch.org/lkarch/newnameful.com">Source</a><br>
     </div>
+    <div id="footer" style="right: 10px;">
+      <a href="/archive">Archive</a><br>
+    </div>
     <script src="/assets/javascript/utils.js"></script>
-    <script src="/assets/javascript/load-discord-messages.js"></script>
     <script src="/assets/javascript/load-data.js"></script>
     <script src="/assets/javascript/index.js"></script>
   </body>
