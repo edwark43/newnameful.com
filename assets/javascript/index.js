@@ -1,33 +1,17 @@
-function get_cookie(cookieName) {
-  let name = cookieName + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let splitCookies = decodedCookie.split(";");
-  for(let i = 0; i < splitCookies.length; i++) {
-    let cookie = splitCookies[i];
-    while (cookie.charAt(0) == " ") {
-      cookie = cookie.substring(1);
-    }
-    if (cookie.indexOf(name) == 0) {
-      return cookie.substring(name.length, cookie.length);
-    }
-  }
-  return "";
-}
-
-function switch_page(pageName, button, pushState) {
-  for (let page = 0; page < document.getElementsByClassName("page").length; page++) {
-    document.getElementsByClassName("page")[page].style.display = "none";
+function switch_page(button) {
+  let pageName = button.id.split("-")[0]
+  
+  for (let page = 0; page < query_all(".page").length; page++) {
+    query_all(".page")[page].style.display = "none";
   }
 
-  let navButtons = document.getElementsByClassName("nav-button");
+  let navButtons = query_all(".nav-button");
   for (let navButton = 0; navButton < navButtons.length; navButton++) {
     navButtons[navButton].style.backgroundColor = "black";
     navButtons[navButton].style.color = "white";
   }
 
-  if (pushState == true) {
-    history.pushState(null, "", "/" + pageName);
-  }
+  history.pushState(null, "", "/" + pageName);
   
   document.title = "NN " + button.innerText;
   document.cookie = "page=" + pageName;
@@ -55,7 +39,7 @@ function init() {
   }
 }
 
-window.addEventListener("popstate", function (event){
+window.addEventListener("popstate", function (event) {
   if (pages.includes(window.location.pathname.substr(1).replace("-", ""))) {
     switch_page(window.location.pathname.substr(1).replace("-", ""), query_ele("#" + window.location.pathname.substr(1).replace("-", "") + "-button"), false);
   }

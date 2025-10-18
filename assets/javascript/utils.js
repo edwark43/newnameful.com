@@ -16,8 +16,27 @@ function query_ele(query) {
   return document.querySelector(query);
 }
 
+function query_all(query) {
+  return document.querySelectorAll(query);
+}
+
 function get_page() {
   return window.location.pathname.substr(1)
+}
+
+function get_cookie(cookieName) {
+  let name = cookieName + "=";
+  let cookies = decodeURIComponent(document.cookie).split(";");
+  for(let i = 0; i < cookies.length; i++) {
+    let cookie = cookies[i];
+    while (cookie.charAt(0) == " ") {
+      cookie = cookie.substring(1);
+    }
+    if (cookie.indexOf(name) == 0) {
+      return cookie.substring(name.length, cookie.length);
+    }
+  }
+  return "";
 }
 
 function calculate_countdown(endingDate) {

@@ -86,7 +86,7 @@ body {
   margin: auto;
 }
 
-#new-nameful-logo {
+#logo {
   width: 68vw;
 }
 
@@ -188,7 +188,7 @@ body {
   border: black 6px solid;
   border-image: linear-gradient(to bottom, #ababab 33.3%, #8a6cc4 33.3%, #8a6cc4 66.6%, #3b76c2 66.6%) 1;
   background-image:
-      url("/assets/images/steve.png"),
+      url("/assets/images/leadership/placeholder.png"),
       linear-gradient(to bottom, #ababab 33.3%, #8a6cc4 33.3%, #8a6cc4 66.6%, #3b76c2 66.6%);
   outline: black solid;
 }

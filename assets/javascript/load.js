@@ -29,7 +29,7 @@ async function leadership_load() {
     } else {
       let leader = await fetch_member(leaders[i].username)
       append_before(query_ele("#leadership"),
-        document.getElementsByClassName("loader")[pages.indexOf("leadership") - 1],
+        query_all(".loader")[pages.indexOf("leadership") - 1],
         append(ele("div", {className: "card leader"}),
           ele("p", {innerText: leaders[i].title}),
           ele("hr", {}),
@@ -38,13 +38,13 @@ async function leadership_load() {
         )
       )
       for (let j = 0; j < leader["sections"].length; j++) {
-        append(document.getElementsByClassName("leader-name")[i],
+        append(query_all(".leader-name")[i],
           ele("p", {innerText: leader["sections"][j], className: "leader-section " + "and" + leader["codes"][j].charAt(1)}),
         )
       }
     }
   }
-  document.getElementsByClassName("loader")[pages.indexOf("leadership") - 1].style.display = "none";
+  query_all(".loader")[pages.indexOf("leadership") - 1].style.display = "none";
 }
 
 async function elections_load() {
@@ -55,7 +55,7 @@ async function elections_load() {
   let countdown = Math.ceil(calculate_countdown(jsonData.election_date))
 
   append_before(query_ele("#elections"),
-    document.getElementsByClassName("loader")[pages.indexOf("elections") - 1],
+    query_all(".loader")[pages.indexOf("elections") - 1],
     ele("p", {innerText: ((countdown <= 0) ? "The election will end in " + countdown + " days!" : "The next election starts in " + (countdown - 7) + " days!")}),
     ele("h4", {innerText: "Past Elections"})
   );
@@ -77,7 +77,7 @@ async function elections_load() {
       )
     )
     for (let j = 0; j < pastElections[i].candidates.length; j++) {
-      append(document.getElementsByClassName("candidates")[i],
+      append(query_all(".candidates")[i],
         append(ele("div", {className: "candidate", style: "background: linear-gradient(to right, #6a6a6a 0%, #6a6a6a " + Math.round(pastElections[i].candidates[j].percentage) + "%, #3c3c3c " + Math.round(pastElections[i].candidates[j].percentage) + "%, #3c3c3c 100%);", }),
           ele("img", {src: pastElections[i].candidates[j].avatar, className: "candidate-avatar"}),
           ele("p", {innerText: pastElections[i].candidates[j].candidate, className: "candidate-title"}),
@@ -86,7 +86,7 @@ async function elections_load() {
       )
     }
   }
-  document.getElementsByClassName("loader")[pages.indexOf("elections") - 1].style.display = "none";
+  query_all(".loader")[pages.indexOf("elections") - 1].style.display = "none";
 }
 
 async function constitution_load() {
@@ -97,7 +97,7 @@ async function constitution_load() {
 
   for (let i = 0; i < sections.length; i++) {
     append_before(query_ele("#constitution"),
-      document.getElementsByClassName("loader")[pages.indexOf("constitution") - 1],
+      query_all(".loader")[pages.indexOf("constitution") - 1],
       append(ele("div", {className: "card"}),
         ele("p", {innerText: sections[i].title}),
         ele("hr", {}),
@@ -106,12 +106,12 @@ async function constitution_load() {
       )
     )
     for (let j = 0; j < sections[i].amendments.length; j++) {
-      append(document.getElementsByClassName("amendments")[i],
+      append(query_all(".amendments")[i],
         ele("p", {innerText: j + 1 + ") " + sections[i].amendments[j].amendment}),
       )
     }
   }
-  document.getElementsByClassName("loader")[pages.indexOf("constitution") - 1].style.display = "none";
+  query_all(".loader")[pages.indexOf("constitution") - 1].style.display = "none";
 }
 
 async function memberlist_load() {
@@ -125,7 +125,7 @@ async function memberlist_load() {
   let online = await get_online()
 
   append_before(query_ele("#memberlist"),
-    document.getElementsByClassName("loader")[pages.indexOf("memberlist") - 1],
+    query_all(".loader")[pages.indexOf("memberlist") - 1],
     append(ele("div", {className: "card member-list"}),
       ele("p", {innerText: "Member Count: " + members.length}),
       ele("hr", {}),
@@ -141,18 +141,18 @@ async function memberlist_load() {
     )
     try {
       if (online.indexOf(members[i].username.toLowerCase()) !== -1) {
-        append(document.getElementsByClassName("member")[i],
+        append(query_all(".member")[i],
           ele("span", {className: "online-icon"}),
         )
       }
     } catch (error) {}
     for (let j = 0; j < member["sections"].length; j++) {
-      append(document.getElementsByClassName("member")[i],
+      append(query_all(".member")[i],
         ele("p", {innerText: member["sections"][j], className: "member-section " + "and" + member["codes"][j].charAt(1)}),
       )
     }
   }
-  document.getElementsByClassName("loader")[pages.indexOf("memberlist") - 1].style.display = "none";
+  query_all(".loader")[pages.indexOf("memberlist") - 1].style.display = "none";
 }
 
 function newsnotice_load() {
@@ -177,7 +177,7 @@ async function add_news_cards(cardIndex) {
       let messageDate = new Date(messages[i].timestamp);
 
       append_before(query_ele("#newsnotice"),
-        document.getElementsByClassName("loader")[pages.indexOf("newsnotice") - 1],
+        query_all(".loader")[pages.indexOf("newsnotice") - 1],
         append(ele("div", {className: "card issue"}),
           append(ele("div", {}),
             ele("img", {src: messages[i].author.avatar_url, className: "message-author-avatar"}),
@@ -187,14 +187,14 @@ async function add_news_cards(cardIndex) {
         )
       )
       for (let j = 0; j < messages[i].attachments.length; j++) {
-        append(document.getElementsByClassName("issue")[i],
+        append(query_all(".issue")[i],
           ele("img", {src: messages[i].attachments[j].url, className: "message-attachment"}),
         )
       }
     }
   } catch (error) {
     removeInfiniteScroll();
-    document.getElementsByClassName("loader")[pages.indexOf("newsnotice") - 1].style.display = "none";
+    query_all(".loader")[pages.indexOf("newsnotice") - 1].style.display = "none";
   }
 };
 
@@ -206,7 +206,7 @@ function handle_infinite_scroll() {
     }
     if (currentIndex + cardIncrease === cardLimit) {
       removeInfiniteScroll();
-      document.getElementsByClassName("loader")[pages.indexOf("newsnotice") - 1].style.display = "none";
+      query_all(".loader")[pages.indexOf("newsnotice") - 1].style.display = "none";
     }
   }, 1500);
 }
