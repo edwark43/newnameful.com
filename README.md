@@ -8,6 +8,4 @@ dev.newnameful.com - No Cache Website
 
 Minecraftia Font: https://fontlibrary.org/en/font/minecraftia
 
-Jet Brains Mono Font: https://github.com/JetBrains/JetBrainsMono
-
 New Nameful Logo: @cooltellow DC

@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: 'Minecraftia';
-  src: url('/assets/fonts/Minecraftia.ttf') format('truetype');
+  src: url('/css/Minecraftia.ttf') format('truetype');
 }
 
 @keyframes pop {
@@ -153,10 +153,9 @@ body {
   color: rgba(0, 0, 0, 1);
   text-decoration: none;
   background-color: white;
-  border-radius: 5px;
 }
 
-.info-attachment {
+.attachment {
   padding: 10px;
   width: 75%;
 }
@@ -188,7 +187,7 @@ body {
   border: black 6px solid;
   border-image: linear-gradient(to bottom, #ababab 33.3%, #8a6cc4 33.3%, #8a6cc4 66.6%, #3b76c2 66.6%) 1;
   background-image:
-      url("/assets/images/leadership/placeholder.png"),
+      url("/img/leadership/placeholder.png"),
       linear-gradient(to bottom, #ababab 33.3%, #8a6cc4 33.3%, #8a6cc4 66.6%, #3b76c2 66.6%);
   outline: black solid;
 }
@@ -204,7 +203,6 @@ body {
   vertical-align: middle;
   float: left;
   margin: 10px !important;
-  border-radius: 100%;
 }
 
 .candidate-title {
@@ -219,6 +217,31 @@ body {
   right: 10px;
 }
 
+#propaganda-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 88%;
+  margin: auto;
+}
+
+.propaganda {
+  color: inherit;
+}
+
+.thumb {
+  width: 20vw;
+  height: 20vw;
+  object-fit: cover;
+  margin: 20px auto;
+  border: 3px solid;
+}
+
+#overlay {
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+
 .message-title {
   margin-left: 10px;
   display: inline;
@@ -229,12 +252,6 @@ body {
   display: inline !important;
   vertical-align: middle;
   width: 30px;
-  border-radius: 100%;
-}
-
-.message-attachment {
-  padding: 10px;
-  width: 75%;
 }
 
 .loader {

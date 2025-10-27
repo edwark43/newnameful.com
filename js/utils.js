@@ -74,7 +74,7 @@ function parse_member(nickname) {
 }
 
 async function fetch_member(member) {
-  const response = await fetch("/api/player/" + member + "/nickname");  
+  const response = await fetch("/api/nickname/" + member);  
   const jsonData = await response.json();
 
   return parse_member(jsonData)
@@ -83,7 +83,7 @@ async function fetch_member(member) {
 
 async function get_online() {
   try {
-    const response = await fetch("/api/online/");  
+    const response = await fetch("/api/online");  
     const jsonData = await response.json();
     var online = [];
 
