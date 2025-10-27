@@ -82,7 +82,7 @@ async function leadership_load() {
           ele("p", {innerText: leaders[i].title}),
           ele("hr", {}),
           ele("div", {className: "leader-name"}),
-          ele("img", {className: "leader-render", src: "/api/render/armored/bust/" + leaders[i].username})
+          ele("img", {className: "leader-render", src: "/api/render/armored/bust/" + leaders[i].username + "/96"})
         )
       )
       for (let j = 0; j < leader["sections"].length; j++) {
