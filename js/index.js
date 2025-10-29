@@ -66,8 +66,8 @@ async function info_load() {
 }
 
 async function leadership_load() {
-  const response = await fetch("/api/leadership");  
-  const responseNicked = await fetch("/api/leadership/nicked");  
+  const response = await fetch("/api/data/leadership");  
+  const responseNicked = await fetch("/api/data/nicked/leadership");  
   const leaders = await response.json();
   const leadersNicked = await responseNicked.json();
 
@@ -96,7 +96,7 @@ async function leadership_load() {
 }
 
 async function elections_load() {
-  let response = await fetch("/api/elections");
+  let response = await fetch("/api/data/elections");
   let jsonData = await response.json();
 
   let pastElections = jsonData.past_elections
@@ -168,7 +168,7 @@ async function elections_load() {
 }
 
 async function constitution_load() {
-  const response = await fetch("/api/constitution");
+  const response = await fetch("/api/data/constitution");
   const sections = await response.json();
 
   for (let i = 0; i < sections.length; i++) {
@@ -191,8 +191,8 @@ async function constitution_load() {
 }
 
 async function member_list_load() {
-  const response = await fetch("/api/member_list");
-  const responseNicked = await fetch("/api/member_list/nicked");
+  const response = await fetch("/api/data/member_list");
+  const responseNicked = await fetch("/api/data/nicked/member_list");
   const members = await response.json();
   const membersNicked = await responseNicked.json();
   const online = await get_online()
@@ -234,7 +234,7 @@ function news_notice_load() {
 }
 
 async function add_news_cards(cardIndex) {
-  const response = await fetch("/api/news_notice");
+  const response = await fetch("/api/data/news_notice");
   const messages = await response.json();
 
   messages.reverse()
